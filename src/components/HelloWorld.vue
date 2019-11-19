@@ -1,7 +1,8 @@
 <template>
   <div class="hello">
-    <h1>{{ msg }}</h1>
-    <p>Here's where the magin happens!</p>
+    <h1><b>{{ msg }}</b></h1>
+    <h3>Here's where knowledge begins!</h3>
+    <button class="btn btn-success">Sign Up</button>
   </div>
 </template>
 
