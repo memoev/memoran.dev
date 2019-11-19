@@ -27,8 +27,13 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .github {
-    width: 2.5em;
-    height: 2.5em;
-    opacity: 0.3;
+  width: 2.5em;
+  height: 2.5em;
+  opacity: 0.3;
+}
+
+.navbar-light {
+  margin-bottom: 3em;
+  padding: 0.5em;
 }
 </style>

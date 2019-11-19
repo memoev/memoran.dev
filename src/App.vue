@@ -31,8 +31,4 @@ body {
   text-align: center;
   color: #2c3e50;
 }
-
-pencil {
-  margin-top: 60px;
-}
 </style>
