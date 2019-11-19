@@ -1,8 +1,8 @@
 <template>
   <div id="app">
     <Navbar />
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Hello World"/>
+    <img class="pencil" alt="Pencil" src="./assets/pencil.png">
+    <HelloWorld msg="memoranDEV"/>
   </div>
 </template>
 
@@ -32,7 +32,7 @@ body {
   color: #2c3e50;
 }
 
-img {
+pencil {
   margin-top: 60px;
 }
 </style>
