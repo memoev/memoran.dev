@@ -1,11 +1,11 @@
 <template>
   <div>
     <nav class="navbar navbar-light bg-light">
-        <a class="navbar-brand" href="#">Navbar</a>
+        <a class="navbar-brand" href="#">memoranDEV</a>
         <div id="navbarNav">
             <ul class="nav">
                 <li class="nav-item navbar">
-                    <a class="nav-link" href="#">Github</a>
+                <a href="#"><img class="github" src="../assets/github.png" alt="Github" srcset=""></a>
                 </li>
                 <li class="nav-item">
                     <button class="btn btn-success">
@@ -26,5 +26,9 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-
+.github {
+    width: 2.5em;
+    height: 2.5em;
+    opacity: 0.3;
+}
 </style>
