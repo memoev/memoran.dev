@@ -1,12 +1,22 @@
 <template>
   <div class="memorandev">
-
+    <CategoriesBar />
   </div>
 </template>
 
 <script>
+import CategoriesBar from './CategoriesBar/CategoriesBar.vue'
+
 export default {
   name: 'MemorandevApp',
+  components: {
+    CategoriesBar
+  },
+  data() {
+    return {
+
+    }
+  }
 }
 </script>
 
