@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="navbar">
     <nav class="navbar navbar-light bg-light">
         <a class="navbar-brand" href="#">memoranDEV</a>
         <div id="navbarNav">
@@ -9,7 +9,7 @@
                 </li>
                 <li class="nav-item">
                     <button class="btn btn-success">
-                        <a class="nav-link text-white" href="#">Sign In</a>
+                      Sign In
                     </button>
                 </li>
             </ul>
