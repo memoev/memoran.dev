@@ -1,6 +1,6 @@
 <template>
   <div class="categoriesbar">
-    <div v-for="category in categories" v-bind:key="category">
+    <div v-for="category in categories" v-bind:key="category.id">
       <Category v-bind:category="category"/>
     </div>
   </div>
