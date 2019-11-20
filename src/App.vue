@@ -3,18 +3,21 @@
     <Navbar />
     <img class="pencil" alt="Pencil" src="./assets/pencil.png">
     <HelloWorld msg="memoranDEV"/>
+    <!-- <MemorandevApp /> -->
   </div>
 </template>
 
 <script>
 import HelloWorld from './components/HelloWorld.vue'
 import Navbar from './components/Navbar.vue'
+// import MemorandevApp from './components/MemorandevApp/MemorandevApp.vue'
 
 export default {
   name: 'app',
   components: {
     HelloWorld,
-    Navbar
+    Navbar,
+    // MemorandevApp
   }
 }
 </script>
