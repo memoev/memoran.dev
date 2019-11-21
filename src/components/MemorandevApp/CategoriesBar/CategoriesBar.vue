@@ -8,20 +8,17 @@
 
 <script>
 import Category from './Category.vue'
+import { mapState } from 'vuex';
 
 export default {
   name: 'CategoriesBar',
   components: {
     Category
   },
-  data() {
-    return {
-        categories: [
-            { id: 1, name: "All Notes" },
-            { id: 2, name: "Quick Notes" },
-            { id: 3, name: "Favorites" },
-        ]
-    }
+    computed: {
+    ...mapState({
+      categories: 'categories'
+    })
   }
 }
 </script>
