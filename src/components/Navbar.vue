@@ -8,8 +8,8 @@
                 <a href="#"><img class="github" src="../assets/github.png" alt="Github" srcset=""></a>
                 </li>
                 <li class="nav-item">
-                    <button class="btn btn-success">
-                      Sign In
+                    <button class="btn btn-success" @click="toggleLogIn()">
+                      {{ custom }}
                     </button>
                 </li>
             </ul>
@@ -19,8 +19,20 @@
 </template>
 
 <script>
+import { mapState, mapActions } from 'vuex'
+
 export default {
   name: 'Navbar',
+  computed: {
+    ...mapState({
+      custom: 'logIn'
+    })
+  },
+  methods: {
+    ...mapActions({
+      toggleLogIn: 'toggleLogIn'
+    })
+  }
 }
 </script>
 
