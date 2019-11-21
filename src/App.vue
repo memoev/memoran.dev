@@ -2,7 +2,7 @@
   <div id="app">
     <Navbar />
     <img class="pencil" alt="Pencil" src="./assets/pencil.png">
-    <HelloWorld msg="memoranDEV"/>
+    <HelloWorld />
     <!-- <MemorandevApp /> -->
   </div>
 </template>
