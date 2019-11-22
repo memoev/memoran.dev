@@ -1,23 +1,31 @@
 <template>
   <div id="app">
     <Navbar />
-    <img class="pencil" alt="Pencil" src="./assets/pencil.png">
-    <HelloWorld />
-    <!-- <MemorandevApp /> -->
+    <div class="landing-page" v-if="!custom">
+      <img class="pencil" alt="Pencil" src="./assets/pencil.png">
+      <HelloWorld />
+    </div>
+    <MemorandevApp v-else/>
   </div>
 </template>
 
 <script>
+import { mapState } from 'vuex'
 import HelloWorld from './components/HelloWorld.vue'
 import Navbar from './components/Navbar.vue'
-// import MemorandevApp from './components/MemorandevApp/MemorandevApp.vue'
+import MemorandevApp from './components/MemorandevApp/MemorandevApp.vue'
 
 export default {
   name: 'app',
+  computed: {
+    ...mapState({
+      custom: 'logIn'
+    })
+  },
   components: {
     HelloWorld,
     Navbar,
-    // MemorandevApp
+    MemorandevApp
   }
 }
 </script>
