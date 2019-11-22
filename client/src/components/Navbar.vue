@@ -1,7 +1,7 @@
 <template>
   <div id="navbar">
     <nav class="navbar navbar-light bg-light">
-        <a class="navbar-brand" href="#">memoranDEV</a>
+        <a class="navbar-brand" href="/">{{title}}</a>
         <div id="navbarNav">
             <ul class="nav">
                 <li class="nav-item navbar">
@@ -25,7 +25,8 @@ export default {
   name: 'Navbar',
   computed: {
     ...mapState({
-      custom: 'logIn'
+      custom: 'logIn',
+      title: 'title'
     })
   },
   methods: {

@@ -5,11 +5,12 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    title: "My Custom Title",
+    title: "memoranDEV",
     categories: [
       { id: 1, name: "All Notes" },
       { id: 2, name: "Quick Notes" },
-      { id: 3, name: "Favorites" }
+      { id: 3, name: "School Notes" },
+      { id: 4, name: "Favorites" }
     ],
     logIn: false
   },
@@ -20,8 +21,8 @@ export default new Vuex.Store({
     }
   },
   actions: {
-      toggleLogIn(context) {
-        context.commit('loggingIn');
-      }
+    toggleLogIn(context) {
+      context.commit("loggingIn");
+    }
   }
 });
