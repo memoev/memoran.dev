@@ -21,10 +21,20 @@ app.get('/', (req, res) => {
 });
 
 app.get('/notes', (req, res) => {
-    notes.getAll().then( (notes) => {
+    notes.getAll().then( notes => {
         res.json(notes)
     })
 });
+
+app.post('/notes', (req, res) => {
+    console.log(req.body);
+    notes.create(req.body).then( note => {
+        res.json(note)
+    }).catch( error => {
+        res.status(500);
+        res.json(error);
+    })
+})
 
 const port = process.env.PORT || 4020;
 app.listen(port, () => {
