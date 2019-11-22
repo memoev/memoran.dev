@@ -7,15 +7,17 @@
 <script>
 import CategoriesBar from './CategoriesBar/CategoriesBar.vue'
 
+const API_URL = 'http://localhost:4020/notes'
+
 export default {
   name: 'MemorandevApp',
   components: {
     CategoriesBar
   },
-  data() {
-    return {
-
-    }
+  mounted() {
+    fetch(API_URL).then(res => res.json()).then((result) => {
+      console.log(result);
+    })
   }
 }
 </script>
