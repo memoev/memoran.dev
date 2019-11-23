@@ -1,22 +1,41 @@
 <template>
   <div class="memorandev">
-    <CategoriesBar />
+    <div class="container">
+      <div class="row">
+        <div class="col-2 categoriesbar">
+          <CategoriesBar />
+        </div>
+        <div class="col-3 notesbar">
+          <NotesBar v-bind:notes="notes" />
+        </div>
+        <div class="col-7 note">
+          2 of 3 (wider)
+          <h1>Note goes here!</h1>
+        </div>
+  </div>
+</div>
   </div>
 </template>
 
 <script>
-import CategoriesBar from './CategoriesBar/CategoriesBar.vue'
+import CategoriesBar from './CategoriesBar/CategoriesBar.vue';
+import NotesBar from './NotesBar/NotesBar.vue';
 
-const API_URL = 'http://localhost:4020/notes'
+const API_URL = 'http://localhost:4020/notes';
 
 export default {
   name: 'MemorandevApp',
   components: {
-    CategoriesBar
+    CategoriesBar,
+    NotesBar
   },
+  data: () => ({
+    notes: []
+  }),
   mounted() {
     fetch(API_URL).then(res => res.json()).then((result) => {
-      console.log(result);
+      this.notes = result;
+      console.log(this.notes);
     })
   }
 }
@@ -24,5 +43,20 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.container {
+  max-width: none !important;
+}
+
+.categoriesbar {
+  background-color: aqua;
+}
+
+.notesbar {
+  background-color: darkorange;
+}
+
+.note {
+  background-color: deeppink;
+}
 
 </style>
