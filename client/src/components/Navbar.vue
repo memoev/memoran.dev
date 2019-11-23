@@ -46,7 +46,6 @@ export default {
 }
 
 .navbar-light {
-  margin-bottom: 3em;
   padding: 0.5em;
 }
 </style>
