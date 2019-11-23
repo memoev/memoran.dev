@@ -15,7 +15,7 @@ export default {
   components: {
     Category
   },
-    computed: {
+  computed: {
     ...mapState({
       categories: 'categories'
     })
