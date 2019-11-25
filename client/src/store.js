@@ -7,11 +7,12 @@ export default new Vuex.Store({
   state: {
     title: "memoranDEV",
     categories: [
-      { id: 1, name: "All Notes" },
-      { id: 2, name: "Quick Notes" },
-      { id: 3, name: "School Notes" },
-      { id: 4, name: "Favorites" }
+      { id: 1, name: "all" },
+      { id: 2, name: "quick" },
+      { id: 3, name: "school" },
+      { id: 4, name: "favorites" }
     ],
+    notes: [],
     logIn: false
   },
   mutations: {
