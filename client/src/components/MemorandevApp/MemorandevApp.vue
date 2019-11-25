@@ -10,8 +10,7 @@
         </div>
         <div class="col-7 note">
           <div v-if="this.$store.state.selectedNote._id">
-            <h1>{{this.$store.state.selectedNote.title}}</h1>
-            <p>{{this.$store.state.selectedNote.content}}</p>
+            <NoteDisplay />
           </div>
           <div v-else>
             <h1>Hell yeah!</h1>
@@ -25,6 +24,7 @@
 <script>
 import CategoriesBar from './CategoriesBar/CategoriesBar.vue';
 import NotesBar from './NotesBar/NotesBar.vue';
+import NoteDisplay from './NoteDisplay.vue'
 
 const API_URL = 'http://localhost:4020/notes';
 
@@ -32,12 +32,12 @@ export default {
   name: 'MemorandevApp',
   components: {
     CategoriesBar,
-    NotesBar
+    NotesBar,
+    NoteDisplay
   },
   mounted() {
     fetch(API_URL).then(res => res.json()).then((result) => {
       this.$store.state.notes = result;
-      console.log(result);
     })
   }
 }
