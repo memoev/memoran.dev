@@ -6,7 +6,7 @@
           <CategoriesBar />
         </div>
         <div class="col-3 notesbar">
-          <NotesBar v-bind:notes="notes" />
+          <NotesBar />
         </div>
         <div class="col-7 note">
           2 of 3 (wider)
@@ -29,12 +29,9 @@ export default {
     CategoriesBar,
     NotesBar
   },
-  data: () => ({
-    notes: []
-  }),
   mounted() {
     fetch(API_URL).then(res => res.json()).then((result) => {
-      this.notes = result;
+      this.$store.state.notes = result;
       console.log(this.notes);
     })
   }
