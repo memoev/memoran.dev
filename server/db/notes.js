@@ -28,8 +28,14 @@ const create = (note) => {
     }
 }
 
+const updateNote = (id, newContent) => {
+    return notes
+      .findOneAndUpdate({ _id: id }, { $set: { content: newContent } });
+}
+
 module.exports = {
     getAll,
     getCategoryNotes,
-    create
+    create,
+    updateNote
 }
