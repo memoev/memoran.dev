@@ -9,8 +9,13 @@
           <NotesBar />
         </div>
         <div class="col-7 note">
-          2 of 3 (wider)
-          <h1>Note goes here!</h1>
+          <div v-if="this.$store.state.selectedNote._id">
+            <h1>{{this.$store.state.selectedNote.title}}</h1>
+            <p>{{this.$store.state.selectedNote.content}}</p>
+          </div>
+          <div v-else>
+            <h1>Hell yeah!</h1>
+          </div>
         </div>
   </div>
 </div>
@@ -32,7 +37,7 @@ export default {
   mounted() {
     fetch(API_URL).then(res => res.json()).then((result) => {
       this.$store.state.notes = result;
-      console.log(this.notes);
+      console.log(result);
     })
   }
 }

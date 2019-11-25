@@ -2,7 +2,7 @@
   <div class="notesbar">
     <h3>Notes Bar</h3>
     <div v-for="note in notes" v-bind:key="note._id">
-        <Note v-bind:content="note.content" />
+        <Note v-bind:note="note" />
     </div>
   </div>
 </template>

@@ -18,7 +18,6 @@ export default {
 
             fetch(API_URL).then(res => res.json()).then((result) => {
             this.$store.state.notes = result;
-            console.log(this.notes);
             });
         }
     }

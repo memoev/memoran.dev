@@ -13,6 +13,7 @@ export default new Vuex.Store({
       { id: 4, name: "favorites" }
     ],
     notes: [],
+    selectedNote: {},
     logIn: false
   },
   mutations: {
