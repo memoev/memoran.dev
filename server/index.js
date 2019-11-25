@@ -26,6 +26,12 @@ app.get('/notes', (req, res) => {
     })
 });
 
+app.get('/notes/:category', (req, res) => {
+    notes.getCategoryNotes(req.params.category).then( notes => {
+        res.json(notes)
+    })
+});
+
 app.post('/notes', (req, res) => {
     console.log(req.body);
     notes.create(req.body).then( note => {
