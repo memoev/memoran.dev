@@ -8,6 +8,7 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 import Note from './Note.vue'
 
 export default {
@@ -15,7 +16,11 @@ export default {
   components: {
       Note
   },
-  props: ['notes']
+  computed: {
+    ...mapState({
+      notes: 'notes',
+    })
+  }
 }
 </script>
 
