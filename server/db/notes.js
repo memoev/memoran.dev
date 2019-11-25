@@ -14,6 +14,10 @@ const getAll = () => {
     return notes.find();
 };
 
+const getCategoryNotes = (category) => {
+    return notes.find({category: category})
+}
+
 const create = (note) => {
     const result = Joi.validate(note, schema);
     if (result.error === null) {
@@ -26,5 +30,6 @@ const create = (note) => {
 
 module.exports = {
     getAll,
+    getCategoryNotes,
     create
 }
