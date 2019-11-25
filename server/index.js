@@ -42,6 +42,16 @@ app.post('/notes', (req, res) => {
     })
 })
 
+app.put('/notes/:id', (req, res) => {
+    console.log(req.body.newContent);
+    notes.updateNote(req.params.id, req.body.newContent).then( note => {
+        res.json(note)
+    }).catch( error => {
+        res.status(500);
+        res.json(error);
+    })
+})
+
 const port = process.env.PORT || 4020;
 app.listen(port, () => {
     console.log(`Listening on port: ${port}`);
