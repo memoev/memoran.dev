@@ -43,7 +43,7 @@ app.post('/notes', (req, res) => {
 })
 
 app.put('/notes/:id', (req, res) => {
-    console.log(req.body.newContent);
+    // console.log(req.body);
     notes.updateNote(req.params.id, req.body.newContent).then( note => {
         res.json(note)
     }).catch( error => {
