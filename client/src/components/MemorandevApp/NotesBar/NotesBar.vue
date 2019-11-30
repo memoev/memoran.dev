@@ -4,6 +4,7 @@
     <div v-for="note in notes" v-bind:key="note._id">
         <Note v-bind:note="note" />
     </div>
+    <button @click="handleClick()">+ New Note</button>
   </div>
 </template>
 
@@ -20,6 +21,11 @@ export default {
     ...mapState({
       notes: 'notes',
     })
+  },
+  methods: {
+    handleClick: function () {
+      this.$store.state.createNote = true;
+    }
   }
 }
 </script>

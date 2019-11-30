@@ -14,7 +14,8 @@ export default new Vuex.Store({
     ],
     notes: [],
     selectedNote: {},
-    logIn: false
+    logIn: false,
+    createNote: false
   },
   mutations: {
     loggingIn(state) {

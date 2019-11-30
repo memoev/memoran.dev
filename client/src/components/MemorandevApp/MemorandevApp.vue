@@ -9,11 +9,11 @@
           <NotesBar />
         </div>
         <div class="col-7 note">
-          <div v-if="this.$store.state.selectedNote._id">
+          <div v-if="this.$store.state.selectedNote._id && !this.$store.state.createNote">
             <NoteDisplay />
           </div>
-          <div v-else>
-            <h1>Hell yeah!</h1>
+          <div v-if="this.$store.state.createNote">
+            <NewNote />
           </div>
         </div>
   </div>
@@ -25,6 +25,8 @@
 import CategoriesBar from './CategoriesBar/CategoriesBar.vue';
 import NotesBar from './NotesBar/NotesBar.vue';
 import NoteDisplay from './NoteDisplay.vue'
+import NewNote from './NotesBar/NewNote.vue'
+
 
 const API_URL = 'http://localhost:4020/notes';
 
@@ -33,7 +35,8 @@ export default {
   components: {
     CategoriesBar,
     NotesBar,
-    NoteDisplay
+    NoteDisplay,
+    NewNote
   },
   mounted() {
     fetch(API_URL).then(res => res.json()).then((result) => {
