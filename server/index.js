@@ -14,6 +14,8 @@ app.use(morgan('tiny'));
 app.use(cors());
 app.use(bodyParser.json());
 
+// API calls!
+
 app.get('/', (req, res) => {
     res.json ({
         message: 'Fullstack Message Board!'
