@@ -6,11 +6,12 @@
 
 <script>
 export default {
-    name: 'Notes',
+    name: 'Note',
     props: ["note"],
     methods: {
         handleClick: function (obj) {
             this.$store.state.selectedNote = obj;
+            this.$store.state.createNote = false;
         }
     }
 }
