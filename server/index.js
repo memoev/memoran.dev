@@ -35,9 +35,9 @@ app.get('/notes/:category', (req, res) => {
 });
 
 app.post('/notes', (req, res) => {
-    console.log(req.body);
+    // console.log(req.body);
     notes.create(req.body).then( note => {
-        res.json(note)
+        res.json(note);
     }).catch( error => {
         res.status(500);
         res.json(error);
