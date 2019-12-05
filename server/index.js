@@ -16,12 +16,6 @@ app.use(bodyParser.json());
 
 // API calls!
 
-app.get('/', (req, res) => {
-    res.json ({
-        message: 'Fullstack Message Board!'
-    });
-});
-
 app.get('/notes', (req, res) => {
     notes.getAll().then( notes => {
         res.json(notes)
