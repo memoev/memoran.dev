@@ -14,6 +14,8 @@ app.use(morgan('tiny'));
 app.use(cors());
 app.use(bodyParser.json());
 
+// API calls!
+
 app.get('/', (req, res) => {
     res.json ({
         message: 'Fullstack Message Board!'
@@ -33,9 +35,9 @@ app.get('/notes/:category', (req, res) => {
 });
 
 app.post('/notes', (req, res) => {
-    console.log(req.body);
+    // console.log(req.body);
     notes.create(req.body).then( note => {
-        res.json(note)
+        res.json(note);
     }).catch( error => {
         res.status(500);
         res.json(error);

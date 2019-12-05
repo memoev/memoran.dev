@@ -61,7 +61,9 @@ export default {
 }
 
 .note {
-  background-color: deeppink;
+  background-color: white;
+  height: 85vh !important;
+
 }
 
 </style>
