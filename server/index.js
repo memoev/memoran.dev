@@ -5,7 +5,6 @@ const morgan = require("morgan");
 
 // Models
 const notes = require('./db/notes')
-
 const app =  express();
 
 // Middleware
@@ -48,7 +47,13 @@ app.put('/notes/:id', (req, res) => {
     })
 })
 
+app.delete('/notes/:id', (req, res) => {
+    notes.deleteMe(req.params.id)
+        .then(note => {res.json(note)})
+        .catch(error => {res.json(error);})
+})
+
 const port = process.env.PORT || 4020;
 app.listen(port, () => {
-    console.log(`Listening on port: ${port}`);
+    console.log(`You know what time it is: ${port}`);
 })

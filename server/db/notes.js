@@ -33,9 +33,14 @@ const updateNote = (id, newContent) => {
       .findOneAndUpdate({ _id: id }, { $set: { content: newContent } });
 }
 
+const deleteMe = id => {
+    return notes.remove({ _id: id });
+}
+
 module.exports = {
     getAll,
     getCategoryNotes,
     create,
-    updateNote
+    updateNote,
+    deleteMe
 }

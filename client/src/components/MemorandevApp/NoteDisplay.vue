@@ -1,6 +1,7 @@
 <template>
     <div class="note">
-        <button @click="handleClick">{{this.edit === false ? `Edit` : `Preview`}}</button>
+        <button @click="handleClickEdit">{{this.edit === false ? `Edit` : `Preview`}}</button>
+        <button @click="handleClickDelete">Delete</button>
         <h1>{{this.$store.state.selectedNote.title}}</h1>
         <div v-if="!edit">
             <div v-html="compiledMarkdown" id="compiled"/>
@@ -31,7 +32,7 @@ export default {
         }
     },
     methods: {
-        handleClick: function() {
+        handleClickEdit: function() {
             let API_URL = 'http://localhost:4020/notes';
             API_URL += `/${this.$store.state.selectedNote._id}`
 
@@ -55,6 +56,23 @@ export default {
             }
 
             this.edit = !this.edit
+        },
+        handleClickDelete: function() {
+            let API_URL = 'http://localhost:4020/notes';
+            API_URL += `/${this.$store.state.selectedNote._id}`
+            
+            fetch(API_URL, {
+                    method: 'DELETE',
+                    headers: new Headers({
+                        'Content-Type': 'application/json'
+                    }),
+                }).then(response => {
+                    response.json();
+                    this.$store.state.notes = this.$store.state.notes.filter((value) => {
+                        return value !== this.$store.state.selectedNote
+                    })
+                    this.$store.state.selectedNote = {};
+                })
         }
     }
 
