@@ -3,7 +3,7 @@
         <button @click="handleClick">{{this.edit === false ? `Edit` : `Preview`}}</button>
         <h1>{{this.$store.state.selectedNote.title}}</h1>
         <div v-if="!edit">
-            <div v-html="compiledMarkdown" />
+            <div v-html="compiledMarkdown" id="compiled"/>
         </div>
         <div v-else>
             <textarea :value="this.$store.state.selectedNote.content" />
@@ -62,5 +62,17 @@ export default {
 </script>
 
 <style scoped>
+
+textarea {
+    width: 100%;
+    height: 32em;
+}
+
+#compiled {
+    color: blueviolet;
+    text-align: left;
+    height: 32em;
+    overflow: scroll;
+}
 
 </style>
