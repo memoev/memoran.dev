@@ -62,4 +62,13 @@ export default {
 
 <style scoped>
 
+form {
+    margin-top: 1em;
+}
+
+textarea {
+    width: 100%;
+    height: 22em;
+}
+
 </style>
