@@ -7,25 +7,41 @@
             <div v-html="compiledMarkdown" id="compiled"/>
         </div>
         <div v-else>
-            <textarea :value="this.$store.state.selectedNote.content" />
+            <codemirror id="markdown" :value="this.$store.state.selectedNote.content" :options="cmOption"/>
+            <!-- <textarea :value="this.$store.state.selectedNote.content" /> -->
         </div>
     </div>
 </template>
 
 <script>
 const marked = require('marked')
+import { codemirror } from 'vue-codemirror'
+
+// require styles
+import 'codemirror/lib/codemirror.css'
+import 'codemirror/mode/javascript/javascript.js'
+import 'codemirror/mode/markdown/markdown.js'
+import 'codemirror/theme/monokai.css'
 
 export default {
+    components: {
+        codemirror
+    },
     name: 'NoteDisplay',
     data() {
         return {
-           edit: false 
+            cmOption: {
+                mode: 'text/x-markdown',
+                theme: 'monokai',
+                lineWrapping: true
+            },
+            edit: false 
         }
     },
     computed: {
         compiledMarkdown: function () {
         if (!this.$store.state.selectedNote.content) {
-            return marked('');
+            return marked('oh no!');
         } else {
             return marked(this.$store.state.selectedNote.content)
         }
@@ -37,8 +53,8 @@ export default {
             API_URL += `/${this.$store.state.selectedNote._id}`
 
             if (this.edit === true) {
-                var brandNew = document.querySelector('textarea').value;
-                // console.log(brandNew);
+                var brandNew = document.querySelector('#markdown').innerText;
+                console.log(brandNew);
                 // console.log(API_URL);
                 fetch(API_URL, {
                     method: 'PUT',
@@ -91,6 +107,10 @@ textarea {
     text-align: left;
     height: 32em;
     overflow: scroll;
+}
+
+.CodeMirror-wrap pre {
+    word-break: break-word;
 }
 
 </style>
