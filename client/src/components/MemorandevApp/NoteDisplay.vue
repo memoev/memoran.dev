@@ -7,25 +7,44 @@
             <div v-html="compiledMarkdown" id="compiled"/>
         </div>
         <div v-else>
-            <textarea :value="this.$store.state.selectedNote.content" />
+            <codemirror id="markdown" :value="this.$store.state.selectedNote.content" :options="cmOption" @input="onCmCodeChange"/>
+            <!-- <textarea id="hidden" :value="this.$store.state.selectedNote.content" /> -->
         </div>
     </div>
 </template>
 
 <script>
 const marked = require('marked')
+import { codemirror } from 'vue-codemirror'
+
+// require styles
+import 'codemirror/lib/codemirror.css'
+import 'codemirror/mode/javascript/javascript.js'
+import 'codemirror/mode/markdown/markdown.js'
+import 'codemirror/theme/monokai.css'
+
+// console.log(CodeMirror.fromTextArea);
 
 export default {
+    components: {
+        codemirror
+    },
     name: 'NoteDisplay',
     data() {
         return {
-           edit: false 
+            cmOption: {
+                mode: 'text/x-markdown',
+                theme: 'monokai',
+                lineWrapping: true,
+                lineNumbers: true
+            },
+            edit: false 
         }
     },
     computed: {
         compiledMarkdown: function () {
         if (!this.$store.state.selectedNote.content) {
-            return marked('');
+            return marked('oh no!');
         } else {
             return marked(this.$store.state.selectedNote.content)
         }
@@ -36,9 +55,10 @@ export default {
             let API_URL = 'http://localhost:4020/notes';
             API_URL += `/${this.$store.state.selectedNote._id}`
 
-            if (this.edit === true) {
-                var brandNew = document.querySelector('textarea').value;
-                // console.log(brandNew);
+            console.log(this.$store.state.selectedNote.content);
+
+            if (this.edit) {
+                var brandNew = this.$store.state.selectedNote.content
                 // console.log(API_URL);
                 fetch(API_URL, {
                     method: 'PUT',
@@ -73,6 +93,10 @@ export default {
                     })
                     this.$store.state.selectedNote = {};
                 })
+        },
+        onCmCodeChange: function(newCode) {
+            console.log('this is new code', newCode)
+            this.$store.state.selectedNote.content = newCode
         }
     }
 
@@ -81,16 +105,12 @@ export default {
 
 <style scoped>
 
-textarea {
-    width: 100%;
-    height: 32em;
-}
-
 #compiled {
     color: blueviolet;
     text-align: left;
-    height: 32em;
+    height: 90vh;
     overflow: scroll;
+    color: #c1ffc1;
 }
 
 </style>

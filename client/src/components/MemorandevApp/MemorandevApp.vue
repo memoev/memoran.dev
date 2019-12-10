@@ -2,13 +2,13 @@
   <div class="memorandev">
     <div class="container">
       <div class="row">
-        <div class="col-2 categoriesbar">
+        <div class="col-1 categoriesbar">
           <CategoriesBar />
         </div>
-        <div class="col-3 notesbar">
+        <div class="col-2 notesbar">
           <NotesBar />
         </div>
-        <div class="col-7 note">
+        <div class="col-9 note">
           <div v-if="this.$store.state.selectedNote._id && !this.$store.state.createNote">
             <NoteDisplay />
           </div>
@@ -53,17 +53,16 @@ export default {
 }
 
 .categoriesbar {
-  background-color: aqua;
+  background-color: #9bcd9b;
 }
 
 .notesbar {
-  background-color: darkorange;
+  background-color: #2e2e2e;
 }
 
 .note {
-  background-color: white;
-  height: 85vh !important;
-
+  background-color: #272822;
+  height: 100vh !important;
 }
 
 </style>
