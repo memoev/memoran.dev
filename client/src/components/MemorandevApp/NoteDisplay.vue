@@ -7,8 +7,8 @@
             <div v-html="compiledMarkdown" id="compiled"/>
         </div>
         <div v-else>
-            <codemirror id="markdown" :value="this.$store.state.selectedNote.content" :options="cmOption"/>
-            <!-- <textarea :value="this.$store.state.selectedNote.content" /> -->
+            <codemirror id="markdown" :value="this.$store.state.selectedNote.content" :options="cmOption" @input="onCmCodeChange"/>
+            <!-- <textarea id="hidden" :value="this.$store.state.selectedNote.content" /> -->
         </div>
     </div>
 </template>
@@ -23,6 +23,8 @@ import 'codemirror/mode/javascript/javascript.js'
 import 'codemirror/mode/markdown/markdown.js'
 import 'codemirror/theme/monokai.css'
 
+// console.log(CodeMirror.fromTextArea);
+
 export default {
     components: {
         codemirror
@@ -33,7 +35,7 @@ export default {
             cmOption: {
                 mode: 'text/x-markdown',
                 theme: 'monokai',
-                lineWrapping: true
+                lineWrapping: true,
             },
             edit: false 
         }
@@ -52,9 +54,10 @@ export default {
             let API_URL = 'http://localhost:4020/notes';
             API_URL += `/${this.$store.state.selectedNote._id}`
 
-            if (this.edit === true) {
-                var brandNew = document.querySelector('#markdown').innerText;
-                console.log(brandNew);
+            console.log(this.$store.state.selectedNote.content);
+
+            if (this.edit) {
+                var brandNew = this.$store.state.selectedNote.content
                 // console.log(API_URL);
                 fetch(API_URL, {
                     method: 'PUT',
@@ -89,6 +92,10 @@ export default {
                     })
                     this.$store.state.selectedNote = {};
                 })
+        },
+        onCmCodeChange: function(newCode) {
+            console.log('this is new code', newCode)
+            this.$store.state.selectedNote.content = newCode
         }
     }
 
@@ -97,20 +104,11 @@ export default {
 
 <style scoped>
 
-textarea {
-    width: 100%;
-    height: 32em;
-}
-
 #compiled {
     color: blueviolet;
     text-align: left;
-    height: 32em;
+    height: 85vh;
     overflow: scroll;
-}
-
-.CodeMirror-wrap pre {
-    word-break: break-word;
 }
 
 </style>
