@@ -62,8 +62,7 @@ export default {
 
 .note {
   background-color: white;
-  height: 85vh !important;
-
+  height: 100vh !important;
 }
 
 </style>
