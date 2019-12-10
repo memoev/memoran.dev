@@ -1,5 +1,6 @@
 <template>
   <div class="categoriesbar">
+    <button @click="toggleLogIn">Log Out</button>
     <div v-for="category in categories" v-bind:key="category.id">
       <Category v-bind:category="category"/>
     </div>
@@ -8,7 +9,7 @@
 
 <script>
 import Category from './Category.vue'
-import { mapState } from 'vuex';
+import { mapState, mapActions } from 'vuex'
 
 export default {
   name: 'CategoriesBar',
@@ -17,7 +18,13 @@ export default {
   },
   computed: {
     ...mapState({
-      categories: 'categories'
+      categories: 'categories',
+      custom: 'logIn'
+    })
+  },
+  methods: {
+    ...mapActions({
+      toggleLogIn: 'toggleLogIn'
     })
   }
 }
