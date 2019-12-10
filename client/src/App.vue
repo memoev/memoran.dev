@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <Navbar />
     <div class="landing-page" v-if="!custom">
+      <Navbar />
       <img class="pencil" alt="Pencil" src="./assets/pencil.png">
       <HelloWorld />
     </div>
@@ -42,4 +42,14 @@ body {
   text-align: center;
   color: #2c3e50;
 }
+
+.CodeMirror {
+  height: 85vh !important;
+}
+
+.vue-codemirror {
+  height: 85vh !important;
+  /* font-size: 2px; */
+}
+
 </style>
