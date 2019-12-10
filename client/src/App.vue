@@ -44,12 +44,27 @@ body {
 }
 
 .CodeMirror {
-  height: 85vh !important;
+  height: 90vh !important;
+  text-align: left;
 }
 
 .vue-codemirror {
-  height: 85vh !important;
+  height: 90vh !important;
   /* font-size: 2px; */
+}
+
+.language-javascript { 
+  color: white;
+}
+
+.language-bash { 
+  color: white;
+}
+
+pre {
+  background-color: #1a1a1a;
+  border-radius: 1em;
+  padding: 1.5em;
 }
 
 </style>
