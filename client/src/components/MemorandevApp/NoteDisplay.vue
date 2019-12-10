@@ -36,6 +36,7 @@ export default {
                 mode: 'text/x-markdown',
                 theme: 'monokai',
                 lineWrapping: true,
+                lineNumbers: true
             },
             edit: false 
         }
@@ -107,8 +108,9 @@ export default {
 #compiled {
     color: blueviolet;
     text-align: left;
-    height: 85vh;
+    height: 90vh;
     overflow: scroll;
+    color: #c1ffc1;
 }
 
 </style>
