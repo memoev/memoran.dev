@@ -11,6 +11,7 @@
                     <button class="btn btn-success" @click="toggleLogIn()">
                       {{ custom }}
                     </button>
+                    <a href="/login/github">Log In with Github</a>
                 </li>
             </ul>
         </div>

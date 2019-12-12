@@ -52,7 +52,7 @@ export default {
     },
     methods: {
         handleClickEdit: function() {
-            let API_URL = 'http://localhost:4020/notes';
+            let API_URL = 'http://localhost:8080/notes';
             API_URL += `/${this.$store.state.selectedNote._id}`
 
             console.log(this.$store.state.selectedNote.content);
@@ -78,7 +78,7 @@ export default {
             this.edit = !this.edit
         },
         handleClickDelete: function() {
-            let API_URL = 'http://localhost:4020/notes';
+            let API_URL = 'http://localhost:8080/notes';
             API_URL += `/${this.$store.state.selectedNote._id}`
             
             fetch(API_URL, {

@@ -28,7 +28,7 @@ import NoteDisplay from './NoteDisplay.vue'
 import NewNote from './NotesBar/NewNote.vue'
 
 
-const API_URL = 'http://localhost:4020/notes';
+const API_URL = 'http://localhost:8080/notes';
 
 export default {
   name: 'MemorandevApp',
