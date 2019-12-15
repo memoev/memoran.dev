@@ -11,7 +11,7 @@
                     <button class="btn btn-success" @click="toggleLogIn()">
                       {{ custom }}
                     </button>
-                    <a href="/login/github">Log In with Github</a>
+                    <button @click="login">Log In with Github</button>
                 </li>
             </ul>
         </div>
@@ -33,7 +33,10 @@ export default {
   methods: {
     ...mapActions({
       toggleLogIn: 'toggleLogIn'
-    })
+    }),
+    login() {
+      this.$auth.loginWithRedirect();
+    }
   }
 }
 </script>
