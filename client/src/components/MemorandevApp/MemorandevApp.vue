@@ -53,7 +53,9 @@ export default {
 }
 
 .categoriesbar {
-  background-color: #9bcd9b;
+  background-color: #8fbc8f;
+  font-family: Arial, Helvetica, sans-serif;
+  padding: unset;
 }
 
 .notesbar {
