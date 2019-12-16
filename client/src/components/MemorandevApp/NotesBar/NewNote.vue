@@ -2,7 +2,7 @@
     <div class="new-note">
         <form>
             <div class="form-group">
-                <label for="exampleFormControlSelect1">Title</label>
+                <label>Title</label>
                 <input type="title" class="form-control" placeholder="Title">
             </div>
             <div class="form-group">
