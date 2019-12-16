@@ -6,7 +6,7 @@
                 <input type="title" class="form-control" placeholder="Title">
             </div>
             <div class="form-group">
-                <label for="exampleFormControlSelect1">Category</label>
+                <label>Category</label>
                 <select class="form-control">
                     <option value=" "> </option>
                     <option value="quick">Quick</option>
