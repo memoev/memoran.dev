@@ -18,7 +18,7 @@
                 <label>Note Content</label>
                 <textarea class="form-control" placeholder="Content"/>
             </div>
-            <button @click="handleClick">Save</button>
+            <button @click="handleClick">Create</button>
         </form>
     </div>
 </template>
