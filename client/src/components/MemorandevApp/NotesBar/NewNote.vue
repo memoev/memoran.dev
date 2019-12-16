@@ -66,9 +66,14 @@ form {
     margin-top: 1em;
 }
 
+input, select {
+    background-color: #272822
+}
+
 textarea {
     width: 100%;
     height: 22em;
+    background-color: #272822;
 }
 
 </style>
