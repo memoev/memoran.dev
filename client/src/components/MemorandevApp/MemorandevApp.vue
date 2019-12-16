@@ -60,6 +60,7 @@ export default {
 
 .notesbar {
   background-color: #2e2e2e;
+  padding: unset;
 }
 
 .note {
