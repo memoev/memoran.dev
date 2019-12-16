@@ -1,8 +1,9 @@
 <template>
     <div class="note">
-        <button @click="handleClickEdit">{{this.edit === false ? `Edit` : `Preview`}}</button>
-        <button @click="handleClickDelete">Delete</button>
-        <h1>{{this.$store.state.selectedNote.title}}</h1>
+        <div class="controls">
+            <button @click="handleClickEdit">{{this.edit === false ? `Edit` : `Preview`}}</button>
+            <button @click="handleClickDelete">Delete</button>
+        </div>
         <div v-if="!edit">
             <div v-html="compiledMarkdown" id="compiled"/>
         </div>
@@ -102,13 +103,31 @@ export default {
 </script>
 
 <style scoped>
+.controls {
+    right: 0;
+    position: absolute;
+    margin-right: 1em;
+    margin-top: 1em;
+    z-index: 99;
+}
+
+button {
+    background-color: inherit;
+    border: none;
+    color: #fff;
+    font-weight: bold;
+}
+
+button:hover {
+    color: #db7093
+}
 
 #compiled {
-    color: blueviolet;
     text-align: left;
     height: 90vh;
     overflow: scroll;
     color: #c1ffc1;
+    padding-top: 1.5em;
 }
 
 </style>
