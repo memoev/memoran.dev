@@ -12,7 +12,7 @@
     </div>
     <div class="bottoms">
       <img :src="$auth.user.picture">
-      <p class="nickname">{{ $auth.user.nickname.toUpperCase() }}</p>
+      <p class="nickname">{{ $auth.user.nickname }}</p>
       <button class="btn" @click="logout">Log Out</button>
     </div>
   </div>
