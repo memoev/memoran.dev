@@ -15,7 +15,7 @@
                 </select>
             </div>
             <div class="form-group">
-                <label for="exampleFormControlTextarea1">Note Content</label>
+                <label>Note Content</label>
                 <textarea class="form-control" placeholder="Content"/>
             </div>
             <button @click="handleClick">Save</button>
