@@ -2,6 +2,7 @@
     <div class="new-note">
         <form>
             <div class="form-group">
+                <label for="exampleFormControlSelect1">Title</label>
                 <input type="title" class="form-control" placeholder="Title">
             </div>
             <div class="form-group">
@@ -15,7 +16,7 @@
             </div>
             <div class="form-group">
                 <label for="exampleFormControlTextarea1">Note Content</label>
-                <textarea class="form-control" />
+                <textarea class="form-control" placeholder="Content"/>
             </div>
             <button @click="handleClick">Save</button>
         </form>
