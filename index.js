@@ -1,6 +1,7 @@
 var express = require("express");
 const cors = require("cors");
-const path = require("path")
+const path = require("path");
+const bodyParser = require("body-parser");
 
 // Models
 const notes = require("./db/notes");
@@ -11,7 +12,8 @@ var app = express();
 app.use(cors());
 app.use(require("morgan")("combined"));
 app.use(require("cookie-parser")());
-app.use(require("body-parser").urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/dist"));
@@ -45,7 +47,6 @@ app.post("/notes", (req, res) => {
 });
 
 app.put("/notes/:id", (req, res) => {
-  // console.log(req.body);
   notes
     .updateNote(req.params.id, req.body.newContent)
     .then(note => {
