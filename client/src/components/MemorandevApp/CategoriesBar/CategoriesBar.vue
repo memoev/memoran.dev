@@ -1,10 +1,20 @@
 <template>
   <div class="categoriesbar">
-    <button @click="logout">Log Out</button>
-    <div v-for="category in categories" v-bind:key="category.id">
-      <Category v-bind:category="category"/>
+    <div class="logo">
+      <img class="pencil" alt="Pencil" src="../../../assets/pencil.png">
+      <p class="app-name">memoran.DEV</p>
     </div>
-    <!-- <img :src="$auth.user.picture"> -->
+    <p class="cats-title">CATEGORIES</p>
+    <div class="cats">
+      <div v-for="category in categories" v-bind:key="category.id">
+        <Category v-bind:category="category"/>
+      </div>
+    </div>
+    <div class="bottoms">
+      <img :src="$auth.user.picture">
+      <p class="nickname">{{ $auth.user.nickname.toUpperCase() }}</p>
+      <button class="btn" @click="logout">Log Out</button>
+    </div>
   </div>
 </template>
 
@@ -39,9 +49,50 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.logo {
+  font-size: 14px;
+  margin: 0.75em;
+  border-bottom: 0.25em solid #2c3e50;
+}
 
-/* img {
-  width: 4em;
-} */
+.pencil {
+  width: 40%;
+  margin-bottom: 0;
+}
+
+.app-name {
+  margin-bottom: 0.5em;
+}
+
+.cats-title {
+  text-align: left;
+  padding-left: 0.5em;
+  margin-bottom: 0;
+  font-weight: bolder;
+}
+
+.nickname {
+  font-weight: bold;
+  margin-bottom: 0.25em;
+}
+
+.bottoms {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  margin: 0.75em;
+}
+
+img {
+  width: 70%;
+  margin-bottom: 0.75em;
+  border-radius: 50%;
+}
+
+.btn {
+  background-color: #db7093;
+  color: #ffffff;
+  font-weight: bold;
+}
 
 </style>

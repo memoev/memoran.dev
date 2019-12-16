@@ -1,6 +1,6 @@
 <template>
     <div class="category">
-        <button class="btn btn-info" @click="handleClick(category.name)">{{category.name}}</button>
+        <button class="cat-button" @click="handleClick(category.name)">{{category.name.toUpperCase()}}</button>
     </div>
 </template>
 
@@ -30,7 +30,22 @@ button {
     margin: 0 !important;
 }
 
-.category {
-    padding: 0.5em;
+.cat-button {
+    background-color: inherit;
+    color: #ffffff;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: bold;
+    font-size: 14px;
+    padding: none !important;
+    border: none;
+    text-align: left;
+}
+
+.cat-button:hover {
+    background-color: #9bcd9b
+}
+
+.cat-button:active {
+    background-color: #698b69
 }
 </style>
