@@ -55,8 +55,6 @@ export default {
             let API_URL = 'http://localhost:8080/notes';
             API_URL += `/${this.$store.state.selectedNote._id}`
 
-            console.log(this.$store.state.selectedNote.content);
-
             if (this.edit) {
                 var brandNew = this.$store.state.selectedNote.content
                 // console.log(API_URL);
