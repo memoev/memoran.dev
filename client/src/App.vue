@@ -3,15 +3,20 @@
     <MemorandevApp v-if="$auth.isAuthenticated"/>
     <div class="landing-page" v-else>
       <Navbar />
+      <h1 class="landing"><strong>Note Taking App for Developers</strong></h1>
+      <p class="landing">Keeping your thoughts, lists and notes organized just got a lot <strong>faster</strong>! Powered by Vue.js and Markdown Remark.</p>
       <img class="pencil" alt="Pencil" src="./assets/pencil.png">
-      <HelloWorld />
+      <div>
+        <button class="btn landing btn-success" @click="login">Sign in</button>
+        <button class="btn landing btn-dark">Open Source</button>
+      </div>
+      <img class="demo" src="./assets/memoranDEV.png" alt="Demo">
     </div>
   </div>
 </template>
 
 <script>
 import { mapState } from 'vuex'
-import HelloWorld from './components/HelloWorld.vue'
 import Navbar from './components/Navbar.vue'
 import MemorandevApp from './components/MemorandevApp/MemorandevApp.vue'
 export default {
@@ -22,7 +27,6 @@ export default {
     })
   },
   components: {
-    HelloWorld,
     Navbar,
     MemorandevApp
   }
@@ -31,8 +35,9 @@ export default {
 
 <style>
 body {
-  background-color: #8FBC8F;
+  background-color: #B2D0B4;
 }
+
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -40,6 +45,32 @@ body {
   text-align: center;
   color: #2c3e50;
 }
+
+h1.landing {
+  color: #2c3e50;
+  padding-top: 1em;
+}
+
+p.landing {
+  width: 35%;
+  margin: auto;
+  font-size: 24px;
+  padding-top: 1em;
+}
+
+button.landing {
+  margin: 0.5em;
+  padding: 0.5em;
+  height: 3em;
+}
+
+.demo {
+  width: 60%;
+  margin-top: 2em;
+  margin-bottom: 3em;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
 .CodeMirror {
   height: 90vh !important;
   text-align: left;
