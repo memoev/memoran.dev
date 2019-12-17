@@ -77,4 +77,8 @@ textarea {
     background-color: #272822;
 }
 
+textarea:focus {
+    background: #272822;
+}
+
 </style>
