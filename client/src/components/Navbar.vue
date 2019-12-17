@@ -1,17 +1,19 @@
 <template>
   <div id="navbar">
     <nav class="navbar navbar-light bg-light">
-        <a class="navbar-brand" href="/">{{title}}</a>
+      <div class="container">
+        <a class="navbar-brand" href="/"><strong>{{title}}</strong></a>
         <div id="navbarNav">
             <ul class="nav">
                 <li class="nav-item navbar">
                 <a href="#"><img class="github" src="../assets/github.png" alt="Github" srcset=""></a>
                 </li>
                 <li class="nav-item">
-                    <button class="btn btn-success" @click="login">Log In with Github</button>
+                    <button class="btn btn-success" @click="login">Sign in</button>
                 </li>
             </ul>
         </div>
+      </div>
     </nav>
   </div>
 </template>
@@ -40,6 +42,10 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.container {
+  width: 80%;
+}
+
 .btn {
   margin-top: 0.5em;
 }
