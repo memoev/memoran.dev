@@ -1,7 +1,7 @@
 <template>
   <div class="categoriesbar">
     <div class="logo">
-      <img class="pencil" alt="Pencil" src="../../../assets/pencil.png">
+      <img class="pencil" alt="Pencil" :src=" this.$store.state.openbook ? img1 : img2 ">
       <p class="app-name">memoran.DEV</p>
     </div>
     <p class="cats-title">CATEGORIES</p>
@@ -26,6 +26,12 @@ export default {
   name: 'CategoriesBar',
   components: {
     Category
+  },
+  data() {
+    return {
+      img1: require('../../../assets/pencil.png'),
+      img2: require('../../../assets/pencil100.png')
+    }
   },
   computed: {
     ...mapState({
@@ -56,7 +62,7 @@ export default {
 }
 
 .pencil {
-  width: 40%;
+  width: 60%;
   margin-bottom: 0;
 }
 
@@ -90,8 +96,8 @@ img {
 }
 
 .btn {
-  background-color: #db7093;
-  color: #ffffff;
+  background-color: #F0FFF0;
+  color: #C65D57;
   font-weight: bold;
 }
 

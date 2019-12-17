@@ -8,10 +8,7 @@
                 <a href="#"><img class="github" src="../assets/github.png" alt="Github" srcset=""></a>
                 </li>
                 <li class="nav-item">
-                    <button class="btn btn-success" @click="toggleLogIn()">
-                      {{ custom }}
-                    </button>
-                    <button @click="login">Log In with Github</button>
+                    <button class="btn btn-success" @click="login">Log In with Github</button>
                 </li>
             </ul>
         </div>
@@ -43,6 +40,10 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.btn {
+  margin-top: 0.5em;
+}
+
 .github {
   width: 2.5em;
   height: 2.5em;

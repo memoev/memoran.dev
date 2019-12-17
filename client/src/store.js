@@ -6,6 +6,7 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     title: "memoranDEV",
+    openbook: true,
     categories: [
       { id: 1, name: "all" },
       { id: 2, name: "quick" },
@@ -18,14 +19,14 @@ export default new Vuex.Store({
     createNote: false
   },
   mutations: {
-    loggingIn(state) {
+    openBook(state) {
       // mutate state
-      state.logIn = !state.logIn;
+      state.openbook = !state.openbook;
     }
   },
   actions: {
-    toggleLogIn(context) {
-      context.commit("loggingIn");
+    toggleBook(context) {
+      context.commit("openBook");
     }
   }
 });
