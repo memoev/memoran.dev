@@ -16,6 +16,7 @@
 
 <script>
 const marked = require('marked')
+import { mapActions } from 'vuex'
 import { codemirror } from 'vue-codemirror'
 
 // require styles
@@ -52,6 +53,9 @@ export default {
         }
     },
     methods: {
+        ...mapActions({
+            toggleBook: 'toggleBook'
+        }),
         handleClickEdit: function() {
             let API_URL = 'http://localhost:8080/notes';
             API_URL += `/${this.$store.state.selectedNote._id}`
@@ -75,6 +79,7 @@ export default {
             }
 
             this.edit = !this.edit
+            this.toggleBook();
         },
         handleClickDelete: function() {
             let API_URL = 'http://localhost:8080/notes';
