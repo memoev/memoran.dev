@@ -99,7 +99,6 @@ export default {
                 })
         },
         onCmCodeChange: function(newCode) {
-            console.log('this is new code', newCode)
             this.$store.state.selectedNote.content = newCode
         }
     }
