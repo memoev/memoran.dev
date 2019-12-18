@@ -2,7 +2,7 @@ const db = require('./connection');
 const Joi = require('joi');
 
 const schema = Joi.object().keys({
-    username: Joi.string().alphanum().required(),
+    username: Joi.string().required(),
     title: Joi.string().required(),
     category: Joi.string().required(),
     content: Joi.string()
@@ -10,9 +10,9 @@ const schema = Joi.object().keys({
 
 const notes = db.get('notes');
 
-const getAll = () => {
-    return notes.find();
-};
+const getAll = (username) => {
+    return notes.find({username: username});
+}
 
 const getCategoryNotes = (category) => {
     return notes.find({category: category})
