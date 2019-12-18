@@ -70,9 +70,9 @@ app.delete("/notes/:id", (req, res) => {
     });
 });
 
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "./client/dist/index.html"));
-});
+// app.get("*", (req, res) => {
+//   res.sendFile(path.join(__dirname, "./client/dist/index.html"));
+// });
 
 const port = process.env.PORT || 8080;
 app.listen(port, () => {
