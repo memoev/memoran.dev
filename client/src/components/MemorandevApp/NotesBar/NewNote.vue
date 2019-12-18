@@ -35,7 +35,7 @@ export default {
 
             const API_URL = 'http://localhost:8080/notes';
             const insertedNote = {
-                username: 'mexcelus',
+                username: this.$auth.user.nickname,
                 title: noteTitle,
                 category: noteCat,
                 content: noteContent
