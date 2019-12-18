@@ -21,8 +21,8 @@ if (process.env.NODE_ENV === "production") {
 
 // API calls!
 
-app.get("/notes", (req, res) => {
-  notes.getAll().then(notes => {
+app.get("/notes/user/:username", (req, res) => {
+  notes.getAll(req.params.username).then(notes => {
     res.json(notes);
   });
 });
