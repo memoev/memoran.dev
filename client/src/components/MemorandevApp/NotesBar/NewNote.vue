@@ -33,7 +33,7 @@ export default {
             const noteCat = document.querySelector('select').value;
             const noteContent = document.querySelector('textarea').value;
 
-            const API_URL = 'api/notes';
+            const API_URL = 'http://localhost:8080/notes';
             const insertedNote = {
                 username: this.$auth.user.nickname,
                 title: noteTitle,

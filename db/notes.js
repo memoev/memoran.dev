@@ -10,6 +10,10 @@ const schema = Joi.object().keys({
 
 const notes = db.get('notes');
 
+const getEverything = () => {
+    return notes.find({});
+}
+
 const getAll = (username) => {
     return notes.find({username: username});
 }
@@ -38,6 +42,7 @@ const deleteMe = id => {
 }
 
 module.exports = {
+    getEverything,
     getAll,
     getCategoryNotes,
     create,

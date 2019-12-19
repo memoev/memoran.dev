@@ -22,19 +22,25 @@ if (process.env.NODE_ENV === "production") {
 
 // API calls!
 
-app.get("/api/notes/user/:username", (req, res) => {
+app.get("/notes/user/:username", (req, res) => {
   notes.getAll(req.params.username).then(notes => {
     res.json(notes);
   });
 });
 
-app.get("/api/notes/:category", (req, res) => {
+app.get("/notes/:category", (req, res) => {
   notes.getCategoryNotes(req.params.category).then(notes => {
     res.json(notes);
   });
 });
 
-app.post("/api/notes", (req, res) => {
+app.get("/notes/everything/all", (req, res) => {
+  notes.getEverything().then(notes => {
+    res.json(notes);
+  });
+});
+
+app.post("/notes", (req, res) => {
   // console.log(req.body);
   notes
     .create(req.body)
@@ -47,7 +53,7 @@ app.post("/api/notes", (req, res) => {
     });
 });
 
-app.put("/api/notes/:id", (req, res) => {
+app.put("/notes/:id", (req, res) => {
   notes
     .updateNote(req.params.id, req.body.newContent)
     .then(note => {
@@ -59,7 +65,7 @@ app.put("/api/notes/:id", (req, res) => {
     });
 });
 
-app.delete("/api/notes/:id", (req, res) => {
+app.delete("/notes/:id", (req, res) => {
   notes
     .deleteMe(req.params.id)
     .then(note => {

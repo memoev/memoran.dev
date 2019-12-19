@@ -11,10 +11,13 @@ export default {
     props: ["category"],
     methods: {
         handleClick: function(name) {
-            let API_URL = 'api/notes'
-            if (name !== "all") {
-                API_URL += name
+            let API_URL = 'http://localhost:8080/notes'
+
+            if (name === 'all') {
+                API_URL += '/everything'
             }
+
+            API_URL += `/${name}`
 
             fetch(API_URL).then(res => res.json()).then((result) => {
             this.$store.state.notes = result;
