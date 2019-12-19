@@ -57,7 +57,7 @@ export default {
             toggleBook: 'toggleBook'
         }),
         handleClickEdit: function() {
-            let API_URL = 'http://localhost:8080/notes';
+            let API_URL = 'api/notes/';
             API_URL += `/${this.$store.state.selectedNote._id}`
 
             if (this.edit) {
@@ -82,7 +82,7 @@ export default {
             this.toggleBook();
         },
         handleClickDelete: function() {
-            let API_URL = 'http://localhost:8080/notes';
+            let API_URL = 'api/notes/';
             API_URL += `/${this.$store.state.selectedNote._id}`
             
             fetch(API_URL, {
