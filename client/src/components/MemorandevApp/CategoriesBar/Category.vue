@@ -11,7 +11,7 @@ export default {
     props: ["category"],
     methods: {
         handleClick: function(name) {
-            let API_URL = 'api/notes/'
+            let API_URL = 'api/notes'
             if (name !== "all") {
                 API_URL += name
             }
