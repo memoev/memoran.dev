@@ -43,7 +43,7 @@ export default {
       console.log(API_URL);
       
       fetch(API_URL).then(res => res.json()).then((result) => {
-        console.log('pain pain pain');
+        console.log('pain pain pain x2');
         this.$store.state.notes = result;
       })
     }
