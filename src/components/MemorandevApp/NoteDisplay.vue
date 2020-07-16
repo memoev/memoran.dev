@@ -1,13 +1,13 @@
 <template>
     <div class="note">
         <div class="controls">
-            <button @click="handleClickEdit">{{this.edit === false ? `Edit` : `Preview`}}</button>
-            <button @click="handleClickDelete">Delete</button>
+            <button class="control-button" @click="handleClickEdit">{{this.edit === false ? `Edit` : `Preview`}}</button>
+            <button class="control-button" @click="handleClickDelete">Delete</button>
         </div>
         <div v-if="!edit">
             <div v-html="compiledMarkdown" id="compiled"/>
         </div>
-        <div v-else>
+        <div class="markdown" v-else>
             <codemirror id="markdown" :value="this.$store.state.selectedNote.content" :options="cmOption" @input="onCmCodeChange"/>
             <!-- <textarea id="hidden" :value="this.$store.state.selectedNote.content" /> -->
         </div>
@@ -108,11 +108,15 @@ export default {
 
 <style scoped>
 .controls {
-    right: 0;
+    right: 1em;
     position: absolute;
     margin-right: 1em;
     margin-top: 1em;
     z-index: 99;
+}
+
+.control-button {
+    font-size: 12px;
 }
 
 button {
@@ -128,10 +132,14 @@ button:hover {
 
 #compiled {
     text-align: left;
-    height: 90vh;
+    height: 99vh;
     overflow: scroll;
     color: #c1ffc1;
     padding-top: 1.5em;
+}
+
+#compiled::-webkit-scrollbar {
+  display: none;
 }
 
 </style>

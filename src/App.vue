@@ -4,7 +4,7 @@
     <div class="landing-page" v-else>
       <Navbar />
       <h1 class="landing"><strong>Note Taking App for Developers</strong></h1>
-      <p class="landing">Keeping your thoughts, lists and notes organized just got a lot <strong>faster</strong>! Powered by Vue.js and Markdown Remark.</p>
+      <p class="landing">Keeping your thoughts, lists and notes organized just got a lot funner! Powered by Vue.js.</p>
       <img class="pencil" alt="Pencil" src="./assets/pencil.png">
       <div>
         <button class="btn landing btn-success" @click="login">Sign in</button>
@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapState, mapActions } from 'vuex'
 import Navbar from './components/Navbar.vue'
 import MemorandevApp from './components/MemorandevApp/MemorandevApp.vue'
 export default {
@@ -29,7 +29,15 @@ export default {
   components: {
     Navbar,
     MemorandevApp
-  }
+  },
+  methods: {
+    ...mapActions({
+      toggleLogIn: 'toggleLogIn'
+    }),
+    login() {
+      this.$auth.loginWithRedirect();
+    }
+  },
 }
 </script>
 
@@ -72,9 +80,14 @@ button.landing {
 }
 
 .CodeMirror {
-  height: 90vh !important;
+  height: 99vh !important;
   text-align: left;
 }
+
+.CodeMirror::-webkit-scrollbar {
+  display: none !important;
+}
+
 .vue-codemirror {
   height: 90vh !important;
   /* font-size: 2px; */
