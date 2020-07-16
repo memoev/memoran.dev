@@ -11,13 +11,14 @@ export default {
     props: ["category"],
     methods: {
         handleClick: function(name) {
-            let API_URL = 'http://localhost:8080/notes'
+            let API_URL = 'https://memoran-dev.herokuapp.com'
 
             if (name === 'all') {
-                API_URL += '/everything'
+                API_URL += '/all'
+            } else {
+                API_URL += `/notes/${name}`
             }
 
-            API_URL += `/${name}`
 
             fetch(API_URL).then(res => res.json()).then((result) => {
             this.$store.state.notes = result;
