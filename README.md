@@ -1,5 +1,5 @@
 <p align="center" style="margin:0;">
-    <img src="./src/assets/pencil.png" style="width:20%;">
+    <img src="./src/assets/pencil.png" style="width:100px;">
     <h1 align="center" style="font-size:26px;font-weight:bolder">memoran.dev</h1>
 </p>
 
