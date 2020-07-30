@@ -1,6 +1,17 @@
-# memoran.dev
+<p align="center" style="margin:0;">
+    <img src="./src/assets/pencil.png" style="width:20%;">
+    <p align="center" style="font-size:26px;font-weight:bolder">memoran.dev</p>
+</p>
 
-I will be working on this
+<p align="center" style="margin:0;">
+    <img src="https://img.shields.io/badge/License-MIT-green.svg">
+</p>
+
+<p align="center">
+    A web-based note-taking application built in vue.js
+</p>
+
+![Screenshot](./src/assets/memoranDEV.png)
 
 ## Project setup
 ```
