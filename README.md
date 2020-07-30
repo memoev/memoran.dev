@@ -1,5 +1,7 @@
 # memoran.dev
 
+I will be working on this
+
 ## Project setup
 ```
 yarn install
