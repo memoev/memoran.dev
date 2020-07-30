@@ -1,4 +1,4 @@
-# memoran.dev <img src="./src/assets/pencil.png" style="max-width:30px !important;">
+# memoran.dev <img src="./src/assets/pencil.png" width="30" height="30">
 
 <p align="center" style="margin:0;">
     <img src="https://img.shields.io/badge/License-MIT-green.svg">
