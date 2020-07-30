@@ -1,6 +1,7 @@
+# memoran.dev
+
 <p align="center" style="margin:0;">
     <img src="./src/assets/pencil.png" style="width:100px;">
-    <p align="center" style="font-size:26px !important;font-weight:bolder !important">memoran.dev</p>
 </p>
 
 <p align="center" style="margin:0;">
