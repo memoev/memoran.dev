@@ -30,7 +30,7 @@ export default {
   data() {
     return {
       img1: require('../../../assets/pencil.png'),
-      img2: require('../../../assets/pencil100.png')
+      img2: require('../../../assets/pencil100.png'),
     }
   },
   computed: {

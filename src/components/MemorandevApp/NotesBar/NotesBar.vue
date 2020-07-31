@@ -1,8 +1,13 @@
 <template>
   <div class="notesbar">
     <h3>NOTES</h3>
-    <div v-for="note in notes" v-bind:key="note._id">
-        <Note v-bind:note="note" />
+    <div v-if="typeof notes != 'undefined' && notes != null && notes.length > 0">
+      <div v-for="note in notes" v-bind:key="note._id">
+          <Note v-bind:note="note" />
+      </div>
+    </div>
+    <div v-else>
+      <img class="load" :src="img1" alt="loading">
     </div>
     <button @click="handleClick()">+ New Note</button>
   </div>
@@ -16,6 +21,11 @@ export default {
   name: 'NotesBar',
   components: {
       Note
+  },
+  data() {
+    return {
+      img1: require('../../../assets/spinner.gif')
+    }
   },
   computed: {
     ...mapState({
@@ -53,5 +63,10 @@ button {
 
 button:hover {
   background-color: #1a1a1a;
+}
+
+img.load {
+  width: 20px;
+  margin-bottom: 1em;
 }
 </style>
