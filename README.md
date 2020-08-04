@@ -17,8 +17,8 @@ Before being able to run and develop `memoran.dev` locally, you'll have to creat
 After this, create a new file at root level called `auth_config.json`, with the following information:
 ```json
 {
-  "domain": xxxx,
-  "clientId": xxxx
+  "domain": '<YOURDOMAIN>',
+  "clientId": '<YOURCLIENTID>'
 }
 ```
 You'll be able to find this under the Quick Start guide within the auth0 application you created.
