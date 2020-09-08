@@ -22,6 +22,10 @@ export default new Vuex.Store({
       // mutate state without payload
       state.openbook = !state.openbook;
     },
+    initNote(state) {
+      // mutate state without payload
+      state.createNote = !state.createNote;
+    },
     setNotesList(state, payload) {
       // mutate state with payload
       state.notes = payload;
@@ -34,6 +38,9 @@ export default new Vuex.Store({
   actions: {
     toggleBook(context) {
       context.commit("openBook");
+    },
+    toggleNewNote(context) {
+      context.commit("initNote");
     },
     FillNotesList(context, notesList) {
       context.commit("setNotesList", notesList);

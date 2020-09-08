@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapActions, mapState } from 'vuex'
 import Note from './Note.vue'
 
 export default {
@@ -30,11 +30,14 @@ export default {
   computed: {
     ...mapState({
       notes: 'notes',
-    })
+    }),
   },
   methods: {
-    handleClick: function () {
-      this.$store.state.createNote = true;
+    ...mapActions({
+      toggleNewNote: 'toggleNewNote',
+    }),
+    handleClick: function() {
+      this.toggleNewNote();
     }
   }
 }

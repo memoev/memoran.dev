@@ -24,9 +24,14 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex'
+
 export default {
     name: 'NewNote',
     methods: {
+        ...mapActions({
+        toggleNewNote: 'toggleNewNote',
+        }),
         handleClick: function (event) {
             event.preventDefault();
             const noteTitle = document.querySelector('input').value;
@@ -49,8 +54,7 @@ export default {
                     })
                 }).then(response => {
                     const data = response.json();
-                    this.$store.state.createNote = false;
-                    // this.$store.state.notes.push(insertedNote);
+                    this.toggleNewNote();
                     return data;
                 }).then(data =>  {
                     this.$store.state.notes.push(data);
