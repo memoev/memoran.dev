@@ -25,7 +25,6 @@ export default {
   name: 'Navbar',
   computed: {
     ...mapState({
-      custom: 'logIn',
       title: 'title'
     })
   },

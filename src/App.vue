@@ -16,16 +16,11 @@
 </template>
 
 <script>
-import { mapState, mapActions } from 'vuex'
+import { mapActions } from 'vuex'
 import Navbar from './components/Navbar.vue'
 import MemorandevApp from './components/MemorandevApp/MemorandevApp.vue'
 export default {
   name: 'app',
-  computed: {
-    ...mapState({
-      custom: 'logIn'
-    })
-  },
   components: {
     Navbar,
     MemorandevApp

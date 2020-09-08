@@ -15,7 +15,6 @@ export default new Vuex.Store({
     ],
     notes: [],
     selectedNote: {},
-    logIn: false,
     createNote: false
   },
   mutations: {
@@ -28,6 +27,7 @@ export default new Vuex.Store({
       state.notes = payload;
     },
     selectNote(state, payload) {
+      // mutate state with payload
       state.selectedNote = payload;
     },
   },

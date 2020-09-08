@@ -36,7 +36,6 @@ export default {
   computed: {
     ...mapState({
       categories: 'categories',
-      custom: 'logIn'
     })
   },
   methods: {
