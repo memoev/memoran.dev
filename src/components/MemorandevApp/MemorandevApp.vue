@@ -40,7 +40,7 @@ export default {
   },
   methods: {
     ...mapActions({
-      FillNotesList: 'FillNotesList'
+      FillNotesList: 'FillNotesList',
     })
   },
   mounted() {

@@ -26,7 +26,10 @@ export default new Vuex.Store({
     setNotesList(state, payload) {
       // mutate state with payload
       state.notes = payload;
-    }
+    },
+    selectNote(state, payload) {
+      state.selectedNote = payload;
+    },
   },
   actions: {
     toggleBook(context) {
@@ -34,6 +37,9 @@ export default new Vuex.Store({
     },
     FillNotesList(context, notesList) {
       context.commit("setNotesList", notesList);
+    },
+    pushSelectedNote(context, note) {
+      context.commit("selectNote", note)
     }
   }
 });
