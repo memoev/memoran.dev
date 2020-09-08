@@ -45,36 +45,37 @@ export default {
     },
     computed: {
         compiledMarkdown: function () {
-        if (!this.$store.state.selectedNote.content) {
-            return marked('oh no!');
-        } else {
-            return marked(this.$store.state.selectedNote.content)
-        }
+            if (!this.$store.state.selectedNote.content) {
+                return marked('oh no!');
+            } else {
+                return marked(this.$store.state.selectedNote.content)
+            }
         }
     },
     methods: {
         ...mapActions({
-            toggleBook: 'toggleBook'
+            toggleBook: 'toggleBook',
+            deleteSelectedNote: 'deleteSelectedNote',
+            pushSelectedNote: 'pushSelectedNote',
         }),
         handleClickEdit: function() {
             let API_URL = 'https://memoran-dev.herokuapp.com/notes';
             API_URL += `/${this.$store.state.selectedNote._id}`
 
             if (this.edit) {
-                var brandNew = this.$store.state.selectedNote.content
-                // console.log(API_URL);
+                var brandNew = this.$store.state.selectedNote
                 fetch(API_URL, {
                     method: 'PUT',
                     body: JSON.stringify({
                         _id: `/${this.$store.state.selectedNote._id}`,
-                        newContent: brandNew
+                        newContent: brandNew.content
                     }),
                     headers: new Headers({
                         'Content-Type': 'application/json'
                     }),
                 }).then(response => {
                     response.json();
-                    this.$store.state.selectedNote.content = brandNew;
+                    this.pushSelectedNote(brandNew);
                 })
             }
 
@@ -92,10 +93,11 @@ export default {
                     }),
                 }).then(response => {
                     response.json();
-                    this.$store.state.notes = this.$store.state.notes.filter((value) => {
-                        return value !== this.$store.state.selectedNote
-                    })
-                    this.$store.state.selectedNote = {};
+                    // this.$store.state.notes = this.$store.state.notes.filter((value) => {
+                    //     return value !== this.$store.state.selectedNote
+                    // })
+                    this.deleteSelectedNote(this.$store.state.selectedNote);
+                    this.pushSelectedNote( {} );
                 })
         },
         onCmCodeChange: function(newCode) {

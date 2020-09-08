@@ -36,6 +36,12 @@ export default new Vuex.Store({
       // mutate state with payload
       state.selectedNote = payload;
     },
+    removeNote(state, payload) {
+      const index = state.notes.indexOf(payload);
+      if (index > -1) {
+        state.notes.splice(index, 1);
+      }
+    }
   },
   actions: {
     toggleBook(context) {
@@ -49,6 +55,9 @@ export default new Vuex.Store({
     },
     pushSelectedNote(context, note) {
       context.commit("selectNote", note)
+    },
+    deleteSelectedNote(context, note) {
+      context.commit("removeNote", note)
     }
   }
 });

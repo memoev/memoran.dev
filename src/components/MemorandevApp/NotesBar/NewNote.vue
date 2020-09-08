@@ -31,6 +31,8 @@ export default {
     methods: {
         ...mapActions({
         toggleNewNote: 'toggleNewNote',
+        FillNotesList:"FillNotesList",
+        pushSelectedNote: "pushSelectedNote",
         }),
         handleClick: function (event) {
             event.preventDefault();
@@ -57,8 +59,9 @@ export default {
                     this.toggleNewNote();
                     return data;
                 }).then(data =>  {
-                    this.$store.state.notes.push(data);
-                    this.$store.state.selectedNote = data;
+                    const DATARRAY = [data];
+                    this.FillNotesList(DATARRAY);
+                    this.pushSelectedNote(data);
                 });
         }
     }
