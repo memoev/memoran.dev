@@ -20,13 +20,20 @@ export default new Vuex.Store({
   },
   mutations: {
     openBook(state) {
-      // mutate state
+      // mutate state without payload
       state.openbook = !state.openbook;
+    },
+    setNotesList(state, payload) {
+      // mutate state with payload
+      state.notes = payload;
     }
   },
   actions: {
     toggleBook(context) {
       context.commit("openBook");
+    },
+    FillNotesList(context, notesList) {
+      context.commit("setNotesList", notesList);
     }
   }
 });

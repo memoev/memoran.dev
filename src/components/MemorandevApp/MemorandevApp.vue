@@ -26,6 +26,7 @@ import CategoriesBar from './CategoriesBar/CategoriesBar.vue';
 import NotesBar from './NotesBar/NotesBar.vue';
 import NoteDisplay from './NoteDisplay.vue'
 import NewNote from './NotesBar/NewNote.vue'
+import { mapActions } from 'vuex';
 
 let API_URL = 'https://memoran-dev.herokuapp.com/notes';
 
@@ -37,14 +38,19 @@ export default {
     NoteDisplay,
     NewNote
   },
+  methods: {
+    ...mapActions({
+      FillNotesList: 'FillNotesList'
+    })
+  },
   mounted() {
     const callNotes = () => {
       API_URL += `/user/${this.$auth.user.nickname}`;
-      console.log(API_URL);
       
       fetch(API_URL).then(res => res.json()).then((result) => {
-        console.log('pain pain pain x2');
-        this.$store.state.notes = result;
+        // console.log(result);
+        this.FillNotesList(result);
+        // this.$store.state.notes = result;
       })
     }
     setTimeout(callNotes, 500);
