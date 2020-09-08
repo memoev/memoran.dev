@@ -1,6 +1,6 @@
 <template>
-  <div class="memorandev">
-    <div class="container">
+  <div>
+    <div>
       <div class="row">
         <div class="col-1 categoriesbar">
           <CategoriesBar />
@@ -54,8 +54,9 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.container {
-  max-width: none !important;
+div.row {
+  width: 100%;
+  margin: 0;
 }
 
 .categoriesbar {

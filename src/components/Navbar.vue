@@ -6,7 +6,7 @@
         <div id="navbarNav">
             <ul class="nav">
                 <li class="nav-item navbar">
-                <a href="#"><img class="github" src="../assets/github.png" alt="Github" srcset=""></a>
+                <a href="https://github.com/memoev/memoran.dev"><img class="github" src="../assets/github.png" alt="Github"></a>
                 </li>
                 <li class="nav-item">
                     <button class="btn btn-success" @click="login">Sign in</button>
@@ -53,7 +53,6 @@ export default {
 .github {
   width: 2.5em;
   height: 2.5em;
-  opacity: 0.3;
 }
 
 .navbar-light {

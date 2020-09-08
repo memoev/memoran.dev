@@ -1,7 +1,8 @@
 <template>
   <div class="notesbar">
     <h3>NOTES</h3>
-    <div v-if="typeof notes != 'undefined' && notes != null && notes.length > 0">
+    <button @click="handleClick()"><b>+ New Note</b></button>
+    <div class="note-list" v-if="typeof notes != 'undefined' && notes != null && notes.length > 0">
       <div v-for="note in notes" v-bind:key="note._id">
           <Note v-bind:note="note" />
       </div>
@@ -9,7 +10,6 @@
     <div v-else>
       <img class="load" :src="img1" alt="loading">
     </div>
-    <button @click="handleClick()">+ New Note</button>
   </div>
 </template>
 
@@ -68,5 +68,13 @@ button:hover {
 img.load {
   width: 20px;
   margin-bottom: 1em;
+  margin-top: 2em;
 }
+
+div.note-list {
+  overflow: scroll;
+  position: relative;
+  height: 80vh;
+}
+
 </style>

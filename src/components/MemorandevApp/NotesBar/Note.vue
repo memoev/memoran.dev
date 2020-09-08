@@ -22,8 +22,8 @@ button {
   background-color: inherit;
   color: #ffffff;
   width: 100%;
-  border-top: 0.15em solid #1a1a1a;
-  border-bottom: unset;
+  border-bottom: 0.15em solid #1a1a1a;
+  border-top: unset;
   border-left: unset;
   border-right: unset;
   padding: 0.5em;
