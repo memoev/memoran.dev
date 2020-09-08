@@ -28,7 +28,9 @@ export default new Vuex.Store({
     },
     setNotesList(state, payload) {
       // mutate state with payload
-      state.notes = payload;
+      payload.forEach(i => {
+        state.notes.push(i)
+      });
     },
     selectNote(state, payload) {
       // mutate state with payload
