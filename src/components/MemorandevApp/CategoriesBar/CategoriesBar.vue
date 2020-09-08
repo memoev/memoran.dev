@@ -1,7 +1,7 @@
 <template>
   <div class="categoriesbar">
     <div class="logo">
-      <img class="pencil" alt="Pencil" :src=" this.$store.state.openbook ? img1 : img2 ">
+      <img class="pencil" alt="Pencil" :src=" this.$store.state.openbook ? img2 : img1 ">
       <p class="app-name">memoran.DEV</p>
     </div>
     <p class="cats-title">CATEGORIES</p>

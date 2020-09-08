@@ -48,9 +48,7 @@ export default {
       API_URL += `/user/${this.$auth.user.nickname}`;
       
       fetch(API_URL).then(res => res.json()).then((result) => {
-        // console.log(result);
         this.FillNotesList(result);
-        // this.$store.state.notes = result;
       })
     }
     setTimeout(callNotes, 500);

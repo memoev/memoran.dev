@@ -6,7 +6,7 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     title: "memoran.DEV",
-    openbook: true,
+    openbook: false,
     categories: [
       { id: 1, name: "all" },
       { id: 2, name: "quick" },
