@@ -1,28 +1,38 @@
 <template>
   <div class="note">
     <button @click="handleClick(note)">
-      <div class="note-title">
-        {{note.title}}
-      </div>
-      <div class="note-category">
-        {{note.category}}
+      <div>
+        <div class="note-title">
+          {{note.title}}
+        </div>
+        <div class="note-category">
+          {{note.category}}
+        </div>
       </div>
     </button>
+    <img src="../../../assets/trash-icon.png" alt="trash-icon" @click="handleTrash">
   </div>
 </template>
 
 <script>
 import { mapActions } from 'vuex';
+
+
+
 export default {
   name: 'Note',
   props: ["note"],
   methods: {
     ...mapActions({
       pushSelectedNote: 'pushSelectedNote',
+      deleteSelectedNote: 'deleteSelectedNote',
     }),
     handleClick: function (obj) {
       this.pushSelectedNote(obj);
       this.$store.state.createNote = false;
+    },
+    handleTrash: function(obj) {
+      this.deleteSelectedNote(obj);
     }
   }
 }
@@ -47,6 +57,18 @@ button:hover {
 
 button:focus {
   background-color: #1a1a1a;
+}
+
+img {
+  width: 30px;
+  opacity: 0.3;
+  position: absolute;
+  right: 0px;
+}
+
+div.note {
+  display: flex;
+  position: relative;
 }
 
 div.note-title {
