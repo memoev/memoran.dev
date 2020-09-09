@@ -61,17 +61,20 @@ export default {
 div.row {
   width: 100%;
   margin: 0;
+  height: 100vh;
 }
 
 .categoriesbar {
   background-color: #8fbc8f;
   font-family: Arial, Helvetica, sans-serif;
   padding: unset;
+  height: 100vh;
 }
 
 .notesbar {
   background-color: #2e2e2e;
   padding: unset;
+  height: 100vh;
 }
 
 .note {

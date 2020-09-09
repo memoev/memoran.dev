@@ -1,7 +1,9 @@
 <template>
-  <div class="notesbar">
-    <h3>NOTES</h3>
-    <button @click="handleClick()"><b>+ New Note</b></button>
+  <div class="notes-container">
+    <div class="notes-header">
+      <h3 class="col-6">NEW:</h3>
+      <button class="col-6" @click="handleClick()"><b>+</b></button>
+    </div>
     <div class="note-list" v-if="typeof notes != 'undefined' && notes != null && notes.length > 0">
       <div v-for="note in notes" v-bind:key="note._id">
           <Note v-bind:note="note" />
@@ -46,22 +48,18 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 h3 {
-  background-color: #1a1a1a;
   color: #ffffff;
   border-radius: 0.25em;
-  margin: 0.5em;
-  line-height: 2em;
+  line-height: 3em;
+  font-size: 16px;
+  margin: 0;
 }
 
 button {
   background-color: inherit;
   color: #ffffff;
-  width: 100%;
-  border-top: 0.15em solid #1a1a1a;
-  border-bottom: 0.15em solid #1a1a1a;
-  border-left: unset;
-  border-right: unset;
-  padding: 0.5em;
+  border: 2px solid #000;
+  border-radius: 1em;
 }
 
 button:hover {
@@ -74,10 +72,20 @@ img.load {
   margin-top: 2em;
 }
 
+div.notes-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
 div.note-list {
-  overflow: scroll;
-  position: relative;
-  height: 80vh;
+  overflow-y: auto;
+}
+
+div.notes-header {
+  display: flex;
+  height: 3em;
+  background: #000;
 }
 
 </style>

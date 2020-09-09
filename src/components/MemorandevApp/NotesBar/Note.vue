@@ -1,6 +1,13 @@
 <template>
   <div class="note">
-    <button @click="handleClick(note)">{{note.title}}</button>
+    <button @click="handleClick(note)">
+      <div class="note-title">
+        {{note.title}}
+      </div>
+      <div class="note-category">
+        {{note.category}}
+      </div>
+    </button>
   </div>
 </template>
 
@@ -31,6 +38,7 @@ button {
   border-left: unset;
   border-right: unset;
   padding: 0.5em;
+  text-align: left;
 }
 
 button:hover {
@@ -39,5 +47,15 @@ button:hover {
 
 button:focus {
   background-color: #1a1a1a;
+}
+
+div.note-title {
+  font-size: 16px;
+  margin-left: 1em;
+}
+
+div.note-category {
+  font-size: 12px;
+  margin-left: 1.5em;
 }
 </style>

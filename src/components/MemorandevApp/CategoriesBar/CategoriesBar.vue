@@ -1,5 +1,5 @@
 <template>
-  <div class="categoriesbar">
+  <div>
     <div class="logo">
       <img class="pencil" alt="Pencil" :src=" this.$store.state.openbook ? img2 : img1 ">
       <p class="app-name">memoran.DEV</p>
