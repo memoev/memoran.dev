@@ -3,7 +3,7 @@
         <form>
             <div class="form-group">
                 <label>Title</label>
-                <input type="title" class="form-control" placeholder="Title">
+                <input type="title" class="form-control">
             </div>
             <div class="form-group">
                 <label>Category</label>
@@ -14,11 +14,7 @@
                     <option value="favorites">Favorites</option>
                 </select>
             </div>
-            <div class="form-group">
-                <label>Note Content</label>
-                <textarea class="form-control" placeholder="Content"/>
-            </div>
-            <button @click="handleClick">Create</button>
+            <button class="btn" @click="handleClick">Create</button>
         </form>
     </div>
 </template>
@@ -31,6 +27,7 @@ export default {
     methods: {
         ...mapActions({
         toggleNewNote: 'toggleNewNote',
+        toggleBook: "toggleBook",
         FillNotesList:"FillNotesList",
         pushSelectedNote: "pushSelectedNote",
         }),
@@ -38,14 +35,13 @@ export default {
             event.preventDefault();
             const noteTitle = document.querySelector('input').value;
             const noteCat = document.querySelector('select').value;
-            const noteContent = document.querySelector('textarea').value;
 
             const API_URL = 'https://memoran-dev.herokuapp.com/notes';
             const insertedNote = {
                 username: this.$auth.user.nickname,
                 title: noteTitle,
                 category: noteCat,
-                content: noteContent
+                content: '# Start typing here...'
             };
 
             fetch(API_URL, {
@@ -57,11 +53,15 @@ export default {
                 }).then(response => {
                     const data = response.json();
                     this.toggleNewNote();
+                    if (!this.$store.state.openbook) {
+                        this.toggleBook();
+                    }
                     return data;
                 }).then(data =>  {
                     const DATARRAY = [data];
                     this.FillNotesList(DATARRAY);
                     this.pushSelectedNote(data);
+                    // this.toggleBook();
                 });
         }
     }
@@ -71,21 +71,36 @@ export default {
 <style scoped>
 
 form {
-    margin-top: 1em;
+    background: #2e2e2e;
+    width: 50%;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 2em;
+    padding: 3em;
+}
+
+label {
+    color: #fff;
+    font-weight: bolder;
 }
 
 input, select {
-    background-color: #272822
+    color: #fff
 }
 
-textarea {
-    width: 100%;
-    height: 22em;
-    background-color: #272822;
+button {
+    background-color: #F0FFF0;
+    color: #C65D57;
+    font-weight: bold;
 }
 
-textarea:focus {
-    background: #272822;
+div.form-group {
+    width: 50%;
+    margin: 0 auto;
+    margin-bottom: 2em;
 }
 
 </style>
