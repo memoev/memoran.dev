@@ -1,8 +1,8 @@
 <template>
   <div class="notes-container">
     <div class="notes-header">
-      <h3 class="col-6">NEW:</h3>
-      <button class="col-6" @click="handleClick()"><b>+</b></button>
+      <h3 class="col-10">NEW:</h3>
+      <button class="col-2" @click="handleClick()"><b>+</b></button>
     </div>
     <div class="note-list" v-if="typeof notes != 'undefined' && notes != null && notes.length > 0">
       <div v-for="note in notes" v-bind:key="note._id">

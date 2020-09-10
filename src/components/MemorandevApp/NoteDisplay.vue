@@ -4,13 +4,8 @@
             <button class="control-button" @click="handleClickEdit">{{this.$store.state.openbook === false ? `Edit` : `Preview`}}</button>
             <button class="control-button" @click="handleClickDelete">Delete</button>
         </div>
-        <div v-if="!this.$store.state.openbook">
-            <div v-html="compiledMarkdown" id="compiled"/>
-        </div>
-        <div class="markdown" v-else>
-            <codemirror id="markdown" :value="this.$store.state.selectedNote.content" :options="cmOption" @input="onCmCodeChange"/>
-            <!-- <textarea id="hidden" :value="this.$store.state.selectedNote.content" /> -->
-        </div>
+        <div v-html="compiledMarkdown" id="compiled" v-if="!this.$store.state.openbook"/>
+        <codemirror id="markdown" :value="this.$store.state.selectedNote.content" :options="cmOption" @input="onCmCodeChange" v-else/>
     </div>
 </template>
 
@@ -108,6 +103,10 @@ export default {
 </script>
 
 <style scoped>
+.note {
+    position: relative;
+}
+
 .controls {
     right: 1em;
     position: absolute;
@@ -135,8 +134,8 @@ button:hover {
     text-align: left;
     height: 99vh;
     overflow: scroll;
-    color: #c1ffc1;
-    padding-top: 1.5em;
+    color: #363636;
+    padding: 1.5em;
 }
 
 #compiled::-webkit-scrollbar {

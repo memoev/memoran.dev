@@ -56,7 +56,7 @@ export default {
 <style scoped>
 button {
   background-color: inherit;
-  color: #ffffff;
+  color: #363636;
   width: 100%;
   border-bottom: 0.15em solid #1a1a1a;
   border-top: unset;

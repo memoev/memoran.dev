@@ -1,22 +1,14 @@
 <template>
-  <div>
-    <div>
-      <div class="row">
-        <div class="col-1 categoriesbar">
-          <CategoriesBar />
-        </div>
-        <div class="col-2 notesbar">
-          <NotesBar />
-        </div>
-        <div class="col-9 note">
-          <div v-if="this.$store.state.selectedNote._id && !this.$store.state.createNote">
-            <NoteDisplay />
-          </div>
-          <div v-if="this.$store.state.createNote">
-            <NewNote />
-          </div>
-        </div>
-      </div>
+  <div class="app-container">
+    <div class="categoriesbar">
+      <CategoriesBar />
+    </div>
+    <div class="notesbar">
+      <NotesBar />
+    </div>
+    <div class="note">
+      <NoteDisplay v-if="this.$store.state.selectedNote._id && !this.$store.state.createNote"/>
+      <NewNote v-if="this.$store.state.createNote"/>
     </div>
   </div>
 </template>
@@ -58,28 +50,33 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-div.row {
+div.app-container {
   width: 100%;
   margin: 0;
   height: 100vh;
+  display: flex;
 }
 
 .categoriesbar {
-  background-color: #8fbc8f;
+  background-color: #363636;
   font-family: Arial, Helvetica, sans-serif;
   padding: unset;
   height: 100vh;
+  flex: 0 0 200px;
+  position: relative;
 }
 
 .notesbar {
-  background-color: #2e2e2e;
+  background-color: #cecece;
   padding: unset;
   height: 100vh;
+  flex: 0 0 300px;
 }
 
 .note {
-  background-color: #272822;
+  background-color: #f2f2f2;
   height: 100vh !important;
+  flex: 300px;
 }
 
 </style>

@@ -2,7 +2,6 @@
   <div>
     <div class="logo">
       <img class="pencil" alt="Pencil" :src=" this.$store.state.openbook ? img2 : img1 ">
-      <p class="app-name">memoran.DEV</p>
     </div>
     <p class="cats-title">CATEGORIES</p>
     <div class="cats">
@@ -11,9 +10,9 @@
       </div>
     </div>
     <div class="bottoms">
-      <img :src="$auth.user.picture">
+      <img class="github" :src="$auth.user.picture">
       <p class="nickname">{{ $auth.user.nickname }}</p>
-      <button class="btn" @click="logout">Log Out</button>
+      <button class="btn btn-danger" @click="logout">Log Out</button>
     </div>
   </div>
 </template>
@@ -57,12 +56,12 @@ export default {
 .logo {
   font-size: 14px;
   margin: 0.75em;
-  border-bottom: 0.25em solid #2c3e50;
+  border-bottom: 0.25em solid #fff;
 }
 
 .pencil {
-  width: 60%;
-  margin-bottom: 0;
+  width: 40%;
+  margin-bottom: 2em;
 }
 
 .app-name {
@@ -74,30 +73,26 @@ export default {
   padding-left: 0.5em;
   margin-bottom: 0;
   font-weight: bolder;
+  color: #fff;
 }
 
 .nickname {
   font-weight: bold;
   margin-bottom: 0.25em;
+  color: #fff;
 }
 
 .bottoms {
   position: absolute;
-  bottom: 0;
+  bottom: 20px;
   left: 0;
   margin: 0.75em;
 }
 
-img {
-  width: 70%;
+img.github {
+  width: 60%;
   margin-bottom: 0.75em;
   border-radius: 50%;
-}
-
-.btn {
-  background-color: #F0FFF0;
-  color: #C65D57;
-  font-weight: bold;
 }
 
 </style>

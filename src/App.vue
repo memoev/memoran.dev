@@ -37,6 +37,11 @@ export default {
 </script>
 
 <style>
+h2, h3, h4, h5, h6 {
+  color: #db7093;
+  font-weight: bolder;
+}
+
 body {
   background-color: #B2D0B4;
 }
@@ -76,7 +81,7 @@ button.landing {
 }
 
 .CodeMirror {
-  height: 99vh !important;
+  height: 100vh !important;
   text-align: left;
 }
 
@@ -88,14 +93,14 @@ button.landing {
   height: 90vh !important;
   /* font-size: 2px; */
 }
-.language-javascript { 
+/* .language-javascript { 
   color: white;
 }
 .language-bash { 
   color: white;
-}
+} */
 pre {
-  background-color: #1a1a1a;
+  background-color: #cfcfcf;
   border-radius: 1em;
   padding: 1.5em;
 }
