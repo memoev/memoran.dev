@@ -1,10 +1,10 @@
 <template>
     <div class="note">
         <div class="controls">
-            <button class="control-button" @click="handleClickEdit">{{this.edit === false ? `Edit` : `Preview`}}</button>
+            <button class="control-button" @click="handleClickEdit">{{this.$store.state.openbook === false ? `Edit` : `Preview`}}</button>
             <button class="control-button" @click="handleClickDelete">Delete</button>
         </div>
-        <div v-if="!edit">
+        <div v-if="!this.$store.state.openbook">
             <div v-html="compiledMarkdown" id="compiled"/>
         </div>
         <div class="markdown" v-else>
@@ -16,7 +16,7 @@
 
 <script>
 const marked = require('marked')
-import { mapActions } from 'vuex'
+import { mapActions, mapState } from 'vuex'
 import { codemirror } from 'vue-codemirror'
 
 // require styles
@@ -40,10 +40,12 @@ export default {
                 lineWrapping: true,
                 lineNumbers: true
             },
-            edit: false 
         }
     },
     computed: {
+        ...mapState({
+            openBook: 'openBook',
+        }),
         compiledMarkdown: function () {
             if (!this.$store.state.selectedNote.content) {
                 return marked('oh no!');
@@ -59,10 +61,11 @@ export default {
             pushSelectedNote: 'pushSelectedNote',
         }),
         handleClickEdit: function() {
+            this.toggleBook();
             let API_URL = 'https://memoran-dev.herokuapp.com/notes';
             API_URL += `/${this.$store.state.selectedNote._id}`
 
-            if (this.edit) {
+            if (!this.openBook) {
                 var brandNew = this.$store.state.selectedNote
                 fetch(API_URL, {
                     method: 'PUT',
@@ -79,10 +82,11 @@ export default {
                 })
             }
 
-            this.edit = !this.edit
-            this.toggleBook();
+            // this.edit = !this.edit
         },
         handleClickDelete: function() {
+            this.deleteSelectedNote(this.$store.state.selectedNote);
+            this.pushSelectedNote( {} );
             let API_URL = 'https://memoran-dev.herokuapp.com/notes';
             API_URL += `/${this.$store.state.selectedNote._id}`
             
@@ -93,11 +97,6 @@ export default {
                     }),
                 }).then(response => {
                     response.json();
-                    // this.$store.state.notes = this.$store.state.notes.filter((value) => {
-                    //     return value !== this.$store.state.selectedNote
-                    // })
-                    this.deleteSelectedNote(this.$store.state.selectedNote);
-                    this.pushSelectedNote( {} );
                 })
         },
         onCmCodeChange: function(newCode) {
