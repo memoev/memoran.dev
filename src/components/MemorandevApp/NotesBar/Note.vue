@@ -24,12 +24,19 @@ export default {
     ...mapActions({
       pushSelectedNote: 'pushSelectedNote',
       deleteSelectedNote: 'deleteSelectedNote',
+      toggleNewNote: "toggleNewNote",
     }),
     handleClick: function (obj) {
+      if (this.$store.state.createNote) {
+        this.toggleNewNote();
+      }
       this.pushSelectedNote(obj);
-      this.$store.state.createNote = false;
     },
     handleTrash: function(obj) {
+      this.deleteSelectedNote(obj);
+      if (this.$store.state.selectedNote === obj) {
+        this.pushSelectedNote({});
+      }
       let API_URL = 'https://memoran-dev.herokuapp.com/notes';
       API_URL += `/${obj._id}`
       
@@ -40,11 +47,6 @@ export default {
         }),
       }).then(response => {
         response.json();
-        this.deleteSelectedNote(obj);
-
-        if (this.$store.state.selectedNote === obj) {
-          this.pushSelectedNote({});
-        }
       })
     }
   }
