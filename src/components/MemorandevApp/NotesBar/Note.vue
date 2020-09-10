@@ -10,14 +10,12 @@
         </div>
       </div>
     </button>
-    <img src="../../../assets/trash-icon.png" alt="trash-icon" @click="handleTrash">
+    <img src="../../../assets/trash-icon.png" alt="trash-icon" @click="handleTrash(note)">
   </div>
 </template>
 
 <script>
 import { mapActions } from 'vuex';
-
-
 
 export default {
   name: 'Note',
@@ -32,7 +30,22 @@ export default {
       this.$store.state.createNote = false;
     },
     handleTrash: function(obj) {
-      this.deleteSelectedNote(obj);
+      let API_URL = 'https://memoran-dev.herokuapp.com/notes';
+      API_URL += `/${obj._id}`
+      
+      fetch(API_URL, {
+        method: 'DELETE',
+        headers: new Headers({
+            'Content-Type': 'application/json'
+        }),
+      }).then(response => {
+        response.json();
+        this.deleteSelectedNote(obj);
+
+        if (this.$store.state.selectedNote === obj) {
+          this.pushSelectedNote({});
+        }
+      })
     }
   }
 }
@@ -60,10 +73,12 @@ button:focus {
 }
 
 img {
-  width: 30px;
+  width: 20px;
   opacity: 0.3;
   position: absolute;
-  right: 0px;
+  right: 3px;
+  top: 18px;
+  cursor: pointer;
 }
 
 div.note {
