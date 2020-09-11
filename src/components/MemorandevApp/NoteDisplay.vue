@@ -18,7 +18,7 @@ import { codemirror } from 'vue-codemirror'
 import 'codemirror/lib/codemirror.css'
 import 'codemirror/mode/javascript/javascript.js'
 import 'codemirror/mode/markdown/markdown.js'
-import 'codemirror/theme/monokai.css'
+import 'codemirror/theme/base16-light.css'
 
 // console.log(CodeMirror.fromTextArea);
 
@@ -31,7 +31,7 @@ export default {
         return {
             cmOption: {
                 mode: 'text/x-markdown',
-                theme: 'monokai',
+                theme: 'base16-light',
                 lineWrapping: true,
                 lineNumbers: true
             },
@@ -122,12 +122,12 @@ export default {
 button {
     background-color: inherit;
     border: none;
-    color: #fff;
+    color: #363636;
     font-weight: bold;
 }
 
 button:hover {
-    color: #db7093
+    color: #000
 }
 
 #compiled {
