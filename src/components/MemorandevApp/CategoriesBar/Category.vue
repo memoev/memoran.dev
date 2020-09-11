@@ -1,14 +1,25 @@
 <template>
     <div class="category">
-        <button class="cat-button" @click="handleClick(category.name)">{{category.name.toUpperCase()}}</button>
+        <button class="cat-button" @click="handleClick(category.name)">
+            <font-awesome-icon :icon="category.icon" />
+            <span class="category-name">{{category.name.toUpperCase()}}</span>
+        </button>
     </div>
 </template>
 
 <script>
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faBolt, faBook, faBookmark, faStar } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
+
+library.add(faBolt, faStar, faBook, faBookmark);
 
 export default {
     name: 'Category',
     props: ["category"],
+    components: {
+        FontAwesomeIcon
+    },
     methods: {
         handleClick: function(name) {
             let API_URL = 'https://memoran-dev.herokuapp.com'
@@ -19,12 +30,11 @@ export default {
                 API_URL += `/notes/${name}`
             }
 
-
             fetch(API_URL).then(res => res.json()).then((result) => {
             this.$store.state.notes = result;
             });
-        }
-    }
+        },
+    },
 }
 </script>
 
@@ -34,15 +44,19 @@ button {
     margin: 0 !important;
 }
 
+span.category-name {
+    padding-left: 0.5em;
+}
+
 .cat-button {
     background-color: inherit;
     color: #ffffff;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-weight: bold;
     font-size: 14px;
     padding: none !important;
     border: none;
     text-align: left;
+    padding-left: 20px;
 }
 
 .cat-button:hover {
