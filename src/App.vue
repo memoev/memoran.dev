@@ -5,12 +5,12 @@
       <Navbar />
       <h1 class="landing"><strong>Note Taking App for Developers</strong></h1>
       <p class="landing">Keeping your thoughts, lists and notes organized just got a lot funner! Powered by Vue.js.</p>
-      <img class="pencil" alt="Pencil" src="./assets/pencil.png">
+      <img class="notes" alt="Notes" src="./assets/notes.png">
       <div>
         <button class="btn landing btn-success" @click="login">Sign in</button>
         <button class="btn landing btn-dark">Open Source</button>
       </div>
-      <img class="demo" src="./assets/memoranDEV.png" alt="Demo">
+      <!-- <img class="demo" src="./assets/memoranDEV.png" alt="Demo"> -->
     </div>
   </div>
 </template>
@@ -37,17 +37,29 @@ export default {
 </script>
 
 <style>
-h2, h3, h4, h5, h6 {
-  color: #db7093;
+h1, h2, h3, h4, h5, h6 {
+  color: #363636;
   font-weight: bolder;
 }
 
+h1 {
+  font-size: 32px;
+}
+
+h2 {
+  font-size: 28px;
+}
+
+h3 {
+  font-size: 22px;
+}
+
 body {
-  background-color: #B2D0B4;
+  background-color: #cecece;
 }
 
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
@@ -83,6 +95,8 @@ button.landing {
 .CodeMirror {
   height: 100vh !important;
   text-align: left;
+  font-family: Menlo,Monaco,monospace;
+  font-size: 14px;
 }
 
 .CodeMirror::-webkit-scrollbar {
@@ -91,7 +105,6 @@ button.landing {
 
 .vue-codemirror {
   height: 90vh !important;
-  /* font-size: 2px; */
 }
 /* .language-javascript { 
   color: white;
@@ -103,5 +116,9 @@ pre {
   background-color: #cfcfcf;
   border-radius: 1em;
   padding: 1.5em;
+}
+
+code {
+  color: #363636;
 }
 </style>
