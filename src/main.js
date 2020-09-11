@@ -9,10 +9,13 @@ import router from './router'
 // Import the plugin here
 import { Auth0Plugin } from "./auth";
 
+const ENVDOMAIN = process.env.ENVNET_DOMAIN
+const ENVCLIENT = process.env.ENVNET_CLIENTID
+
 // Install the authentication plugin here
 Vue.use(Auth0Plugin, {
-  ENVNET_DOMAIN,
-  ENVNET_CLIENTID,
+  ENVDOMAIN,
+  ENVCLIENT,
   onRedirectCallback: appState => {
     router.push(
       appState && appState.targetUrl
