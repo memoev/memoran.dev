@@ -1,6 +1,6 @@
 <template>
   <div id="navbar">
-    <nav class="navbar navbar-light bg-light">
+    <nav class="navbar navbar-dark bg-dark">
       <div class="container">
         <a class="navbar-brand" href="/"><strong>{{title}}</strong></a>
         <div id="navbarNav">
@@ -41,6 +41,10 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+#navbar {
+  color: #363636;
+}
+
 .container {
   width: 80%;
 }
