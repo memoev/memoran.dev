@@ -46,10 +46,10 @@ button {
 }
 
 .cat-button:hover {
-    background-color: #9bcd9b
+    background-color: #000
 }
 
 .cat-button:active {
-    background-color: #698b69
+    background-color: #000
 }
 </style>

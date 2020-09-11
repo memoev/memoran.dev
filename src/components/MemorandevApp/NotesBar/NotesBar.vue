@@ -58,7 +58,7 @@ h3 {
 button {
   background-color: inherit;
   color: #ffffff;
-  border: 2px solid #000;
+  border: 2px solid #555555;
   border-radius: 1em;
 }
 
@@ -85,7 +85,8 @@ div.note-list {
 div.notes-header {
   display: flex;
   height: 3em;
-  background: #000;
+  background: #555555;
+  border-bottom: 2px solid #000;
 }
 
 </style>

@@ -14,7 +14,7 @@
                     <option value="favorites">Favorites</option>
                 </select>
             </div>
-            <button class="btn" @click="handleClick">Create</button>
+            <button class="btn btn-warning" @click="handleClick">Create</button>
         </form>
     </div>
 </template>
@@ -92,9 +92,12 @@ input, select {
 }
 
 button {
-    background-color: #F0FFF0;
-    color: #C65D57;
     font-weight: bold;
+}
+
+div.new-note {
+    position: relative;
+    height: 100vh;
 }
 
 div.form-group {

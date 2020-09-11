@@ -67,11 +67,13 @@ button {
 }
 
 button:hover {
-  background-color: #1a1a1a;
+  background-color: #555555;
+  color: #fff;
 }
 
 button:focus {
-  background-color: #1a1a1a;
+  background-color: #555555;
+  color: #fff;
 }
 
 img {
