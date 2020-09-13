@@ -102,7 +102,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
 .note {
     position: relative;
 }
@@ -115,24 +115,21 @@ export default {
     z-index: 99;
 }
 
-.control-button {
+button.control-button {
     font-size: 12px;
-}
-
-button {
     background-color: inherit;
     border: none;
     color: #363636;
     font-weight: bold;
 }
 
-button:hover {
+button.control-button:hover {
     color: #000
 }
 
 #compiled {
     text-align: left;
-    height: 99vh;
+    height: 100vh;
     overflow: scroll;
     color: #363636;
     padding: 1.5em;
@@ -140,6 +137,29 @@ button:hover {
 
 #compiled::-webkit-scrollbar {
   display: none;
+}
+
+.CodeMirror {
+  height: 100vh !important;
+  text-align: left;
+  font-family: Menlo,Monaco,monospace;
+  font-size: 14px;
+}
+
+.CodeMirror::-webkit-scrollbar {
+  display: none !important;
+}
+
+/* .language-javascript { 
+  color: white;
+}
+.language-bash { 
+  color: white;
+} */
+
+pre {
+  border-radius: 1em;
+  padding: 1.5em;
 }
 
 </style>

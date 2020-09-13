@@ -74,40 +74,4 @@ button.landing {
   height: 3em;
 }
 
-.demo {
-  width: 60%;
-  margin-top: 2em;
-  margin-bottom: 3em;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
-
-.CodeMirror {
-  height: 100vh !important;
-  text-align: left;
-  font-family: Menlo,Monaco,monospace;
-  font-size: 14px;
-}
-
-.CodeMirror::-webkit-scrollbar {
-  display: none !important;
-}
-
-.vue-codemirror {
-  height: 90vh !important;
-}
-/* .language-javascript { 
-  color: white;
-}
-.language-bash { 
-  color: white;
-} */
-pre {
-  background-color: #cfcfcf;
-  border-radius: 1em;
-  padding: 1.5em;
-}
-
-code {
-  color: #363636;
-}
 </style>

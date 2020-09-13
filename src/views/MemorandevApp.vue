@@ -76,7 +76,6 @@ div.app-container {
 .note {
   background-color: #f2f2f2;
   height: 100vh !important;
-  flex: 300px;
 }
 
 </style>
