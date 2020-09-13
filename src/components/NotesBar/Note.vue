@@ -10,7 +10,7 @@
         </div>
       </div>
     </button>
-    <img src="../../../assets/trash-icon.png" alt="trash-icon" @click="handleTrash(note)">
+    <img src="../../assets/trash-icon.png" alt="trash-icon" @click="handleTrash(note)">
   </div>
 </template>
 

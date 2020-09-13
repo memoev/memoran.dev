@@ -26,7 +26,7 @@ export default {
   },
   data() {
     return {
-      img1: require('../../../assets/spinner.gif')
+      img1: require('../../assets/spinner.gif')
     }
   },
   computed: {

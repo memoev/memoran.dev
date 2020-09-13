@@ -28,8 +28,8 @@ export default {
   },
   data() {
     return {
-      img1: require('../../../assets/folder.png'),
-      img2: require('../../../assets/notes.png'),
+      img1: require('../../assets/folder.png'),
+      img2: require('../../assets/notes.png'),
     }
   },
   computed: {

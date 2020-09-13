@@ -14,10 +14,10 @@
 </template>
 
 <script>
-import CategoriesBar from './CategoriesBar/CategoriesBar.vue';
-import NotesBar from './NotesBar/NotesBar.vue';
-import NoteDisplay from './NoteDisplay.vue'
-import NewNote from './NotesBar/NewNote.vue'
+import CategoriesBar from '../components/CategoriesBar/CategoriesBar.vue';
+import NotesBar from '../components/NotesBar/NotesBar.vue';
+import NoteDisplay from '../components/NoteDisplay.vue'
+import NewNote from '../components/NotesBar/NewNote.vue'
 import { mapActions } from 'vuex';
 
 let API_URL = 'https://memoran-dev.herokuapp.com/notes';
