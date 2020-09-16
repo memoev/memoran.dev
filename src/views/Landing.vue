@@ -7,7 +7,7 @@
       <img class="notes" alt="Notes" src="../assets/notes.png">
       <div>
         <button class="btn landing btn-success" @click="login">Sign in</button>
-        <button class="btn landing btn-dark">Open Source</button>
+        <a href="https://github.com/memoev/memoran.dev"><button class="btn landing btn-dark">Open Source</button></a>
       </div>
     </div>
   </div>
