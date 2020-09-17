@@ -1,7 +1,7 @@
 <template>
   <div class="notes-container">
     <div class="notes-header">
-      <h3 class="col-10">NEW:</h3>
+      <h3 class="col-10">NEW NOTE:</h3>
       <button class="col-2" @click="handleClick()"><b>+</b></button>
     </div>
     <div class="note-list" v-if="typeof notes != 'undefined' && notes != null && notes.length > 0">
@@ -53,6 +53,7 @@ h3 {
   line-height: 3em;
   font-size: 16px;
   margin: 0;
+  text-align: right;
 }
 
 button {
