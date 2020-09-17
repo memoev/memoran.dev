@@ -54,6 +54,7 @@ div.app-container {
   margin: 0;
   height: 100vh;
   display: flex;
+  width: 100%;
 }
 
 .categoriesbar {
@@ -76,6 +77,7 @@ div.app-container {
   background-color: #f2f2f2;
   height: 100vh !important;
   flex: auto;
+  min-width: 300px;
 }
 
 </style>

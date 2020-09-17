@@ -140,26 +140,22 @@ button.control-button:hover {
 }
 
 .CodeMirror {
-  height: 100vh !important;
-  text-align: left;
-  font-family: Menlo,Monaco,monospace;
-  font-size: 14px;
+    height: 100vh !important;
+    text-align: left;
+    font-family: Menlo,Monaco,monospace;
+    font-size: 14px;
 }
 
 .CodeMirror::-webkit-scrollbar {
-  display: none !important;
+    display: none !important;
 }
-
-/* .language-javascript { 
-  color: white;
-}
-.language-bash { 
-  color: white;
-} */
 
 pre {
-  border-radius: 1em;
-  padding: 1.5em;
+    white-space: pre-wrap;
+    overflow-x: auto;
+    background: #cecece;
+    border-radius: 1em;
+    padding: 1em;
 }
 
 </style>
