@@ -3,6 +3,7 @@
     <div class="logo">
       <img class="pencil" alt="Pencil" :src=" this.$store.state.openbook ? img2 : img1 ">
     </div>
+    <hr>
     <p class="cats-title">CATEGORIES</p>
     <div class="cats">
       <div v-for="category in categories" v-bind:key="category.id">
@@ -53,15 +54,18 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+hr {
+  width: 80%;
+  background-color: #fff;
+  height: 2px;
+}
+
 .logo {
   font-size: 14px;
-  margin: 0.75em;
-  border-bottom: 0.25em solid #fff;
 }
 
 .pencil {
   width: 40%;
-  margin-bottom: 2em;
 }
 
 .app-name {
