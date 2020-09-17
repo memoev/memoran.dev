@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="logo">
-      <img class="pencil" alt="Pencil" :src=" this.$store.state.openbook ? img2 : img1 ">
+      <img class="book" alt="book" :src=" this.$store.state.openbook ? img2 : img1 ">
     </div>
     <hr>
     <p class="cats-title">CATEGORIES</p>
@@ -64,7 +64,7 @@ hr {
   font-size: 14px;
 }
 
-.pencil {
+.book {
   width: 40%;
 }
 
