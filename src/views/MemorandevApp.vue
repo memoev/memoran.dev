@@ -51,7 +51,6 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 div.app-container {
-  width: 100%;
   margin: 0;
   height: 100vh;
   display: flex;
@@ -76,6 +75,7 @@ div.app-container {
 .note {
   background-color: #f2f2f2;
   height: 100vh !important;
+  flex: auto;
 }
 
 </style>
