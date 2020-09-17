@@ -27,9 +27,6 @@ export default {
       toggleNewNote: "toggleNewNote",
     }),
     handleClick: function (obj) {
-      if (this.$store.state.createNote) {
-        this.toggleNewNote();
-      }
       this.pushSelectedNote(obj);
     },
     handleTrash: function(obj) {

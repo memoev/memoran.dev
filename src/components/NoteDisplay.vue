@@ -2,7 +2,7 @@
     <div class="note">
         <div class="controls">
             <button class="control-button" @click="handleClickEdit">{{this.$store.state.openbook === false ? `Edit` : `Preview`}}</button>
-            <button class="control-button" @click="handleClickDelete">Delete</button>
+            <button class="control-button" @click="handleClickDelete(selectedNote)">Delete</button>
         </div>
         <div v-html="compiledMarkdown" id="compiled" v-if="!this.$store.state.openbook"/>
         <codemirror id="markdown" :value="this.$store.state.selectedNote.content" :options="cmOption" @input="onCmCodeChange" v-else/>
@@ -40,6 +40,7 @@ export default {
     computed: {
         ...mapState({
             openBook: 'openBook',
+            selectedNote: 'selectedNote',
         }),
         compiledMarkdown: function () {
             if (!this.$store.state.selectedNote.content) {
@@ -79,11 +80,11 @@ export default {
 
             // this.edit = !this.edit
         },
-        handleClickDelete: function() {
-            this.deleteSelectedNote(this.$store.state.selectedNote);
+        handleClickDelete: function(obj) {
+            this.deleteSelectedNote(obj);
             this.pushSelectedNote( {} );
             let API_URL = 'https://memoran-dev.herokuapp.com/notes';
-            API_URL += `/${this.$store.state.selectedNote._id}`
+            API_URL += `/${obj._id}`
             
             fetch(API_URL, {
                     method: 'DELETE',
