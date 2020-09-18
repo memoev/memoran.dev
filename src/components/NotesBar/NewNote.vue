@@ -83,13 +83,13 @@ form {
 }
 
 label {
-    color: #fff;
     font-weight: bolder;
+    color: #fff;
 }
 
-input, select {
-    color: #fff
-}
+/* input, select {
+    color: #000 !important;
+} */
 
 button {
     font-weight: bold;
