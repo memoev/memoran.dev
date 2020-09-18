@@ -87,10 +87,6 @@ label {
     color: #fff;
 }
 
-/* input, select {
-    color: #000 !important;
-} */
-
 button {
     font-weight: bold;
 }
