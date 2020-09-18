@@ -77,7 +77,7 @@ div.app-container {
   background-color: #f2f2f2;
   height: 100vh !important;
   flex: auto;
-  min-width: 300px;
+  min-width: 500px;
 }
 
 </style>
