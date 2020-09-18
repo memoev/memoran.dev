@@ -65,6 +65,7 @@ hr {
 }
 
 .book {
+  padding-top: 1em;
   width: 40%;
 }
 
