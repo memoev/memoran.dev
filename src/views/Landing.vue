@@ -27,7 +27,7 @@ export default {
     }),
     login() {
       this.$auth.loginWithRedirect({
-          redirect_uri: 'https://memorandev.memoev.vercel.app/app'
+          redirect_uri: 'https://memorandev.vercel.app/app'
       });
     }
   },
