@@ -60,17 +60,9 @@ hr {
   height: 2px;
 }
 
-.logo {
-  font-size: 14px;
-}
-
 .book {
   padding-top: 1em;
   width: 40%;
-}
-
-.app-name {
-  margin-bottom: 0.5em;
 }
 
 .cats-title {
@@ -79,6 +71,7 @@ hr {
   margin-bottom: 0;
   font-weight: bolder;
   color: #fff;
+  font-size: 14px;
 }
 
 .nickname {

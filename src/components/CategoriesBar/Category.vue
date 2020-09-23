@@ -1,7 +1,7 @@
 <template>
     <div class="category">
         <button class="cat-button" @click="handleClick(category.name)">
-            <font-awesome-icon :icon="category.icon" />
+            <font-awesome-icon class="icon" :icon="category.icon" />
             <span class="category-name">{{category.name.toUpperCase()}}</span>
         </button>
     </div>
@@ -45,14 +45,18 @@ button {
 }
 
 span.category-name {
-    padding-left: 0.5em;
+    padding-left: 1em;
+}
+
+.icon {
+    width: 10px;
 }
 
 .cat-button {
     background-color: inherit;
     color: #ffffff;
     font-weight: bold;
-    font-size: 14px;
+    font-size: 12px;
     padding: none !important;
     border: none;
     text-align: left;
