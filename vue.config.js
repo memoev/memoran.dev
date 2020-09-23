@@ -5,7 +5,7 @@ module.exports = {
   devServer: {
     proxy: {
       '/api': {
-        target: 'https://memorandev.memoev.vercel.app/app'
+        target: 'http://localhost:8080'
       }
     }
   }
