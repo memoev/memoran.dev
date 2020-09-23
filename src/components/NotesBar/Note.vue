@@ -2,24 +2,42 @@
   <div class="note">
     <button @click="handleClick(note)">
       <div>
-        <div class="note-title">
-          {{note.title}}
+        <div class="note-title" v-if="note.title.length > 30">
+          {{ note.title.substring(0, 30) + '...' }}
+        </div>
+        <div class="note-title" v-else>
+          {{ note.title }}
         </div>
         <div class="note-category">
-          {{note.category}}
+          <font-awesome-icon class="icon" :icon="(categories.find(category => category.name === note.category)).icon" />
+          <span class="category-name">{{note.category}}</span>
         </div>
       </div>
     </button>
-    <img src="../../assets/trash-icon.png" alt="trash-icon" @click="handleTrash(note)">
+    <abbr title="Delete"><img src="../../assets/trash-icon.png" alt="trash-icon" @click="handleTrash(note)"></abbr>
   </div>
 </template>
 
 <script>
-import { mapActions } from 'vuex';
+import { mapActions, mapState } from 'vuex';
+
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faBolt, faBook, faBookmark, faStar } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
+
+library.add(faBolt, faStar, faBook, faBookmark);
 
 export default {
   name: 'Note',
   props: ["note"],
+  components: {
+      FontAwesomeIcon
+  },
+  computed: {
+    ...mapState({
+      categories: 'categories',
+    }),
+  },
   methods: {
     ...mapActions({
       pushSelectedNote: 'pushSelectedNote',
@@ -58,11 +76,11 @@ button {
   background-color: inherit;
   color: #363636;
   width: 100%;
-  border-bottom: 0.15em solid #1a1a1a;
+  border-bottom: 0.15em solid #555555;
   border-top: unset;
   border-left: unset;
   border-right: unset;
-  padding: 0.5em;
+  padding: 0.75em;
   text-align: left;
 }
 
@@ -80,8 +98,8 @@ img {
   width: 20px;
   opacity: 0.3;
   position: absolute;
-  right: 3px;
-  top: 18px;
+  right: 10px;
+  top: 20px;
   cursor: pointer;
 }
 
@@ -91,12 +109,21 @@ div.note {
 }
 
 div.note-title {
-  font-size: 16px;
+  font-size: 14px;
   margin-left: 1em;
+  margin-bottom: 0.25em;
 }
 
 div.note-category {
-  font-size: 12px;
-  margin-left: 1.5em;
+  font-size: 10px;
+  margin-left: 2em;
+}
+
+span.category-name {
+    padding-left: 0.5em;
+}
+
+.icon {
+    width: 10px;
 }
 </style>

@@ -54,6 +54,7 @@ h3 {
   font-size: 16px;
   margin: 0;
   text-align: right;
+  padding: 0;
 }
 
 button {
@@ -64,7 +65,7 @@ button {
 }
 
 button:hover {
-  background-color: #1a1a1a;
+  background-color: #555555;
 }
 
 img.load {
@@ -87,7 +88,7 @@ div.notes-header {
   display: flex;
   height: 3em;
   background: #555555;
-  border-bottom: 2px solid #000;
+  border-bottom: 2px solid #ffffff;
 }
 
 </style>
