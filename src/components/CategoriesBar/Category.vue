@@ -42,6 +42,8 @@ export default {
 button {
     width: 100%;
     margin: 0 !important;
+    padding-top: 0.25em;
+    padding-bottom: 0.25em;
 }
 
 span.category-name {
