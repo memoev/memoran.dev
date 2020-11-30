@@ -11,16 +11,16 @@
       </div>
     </div>
     <div class="bottoms">
-      <img class="github" :src="$auth.user.picture">
-      <p class="nickname">{{ $auth.user.nickname }}</p>
-      <button class="btn btn-danger" @click="logout">Log Out</button>
+      <button class="btn btn-danger" @click="logout">
+        <router-link v-bind:to="{ path: '/' }">EXIT</router-link>
+      </button>
     </div>
   </div>
 </template>
 
 <script>
 import Category from './Category.vue'
-import { mapState, mapActions } from 'vuex'
+import { mapState } from 'vuex'
 
 export default {
   name: 'CategoriesBar',
@@ -38,17 +38,6 @@ export default {
       categories: 'categories',
     })
   },
-  methods: {
-    ...mapActions({
-      toggleLogIn: 'toggleLogIn'
-    }),
-    // Log the user out
-    logout() {
-      this.$auth.logout({
-        returnTo: window.location.origin
-      });
-    }
-  }
 }
 </script>
 
@@ -74,23 +63,10 @@ hr {
   font-size: 14px;
 }
 
-.nickname {
-  font-weight: bold;
-  margin-bottom: 0.25em;
-  color: #fff;
-}
-
 .bottoms {
-  position: absolute;
-  bottom: 20px;
-  left: 0;
-  margin: 0.75em;
-}
-
-img.github {
-  width: 60%;
-  margin-bottom: 0.75em;
-  border-radius: 50%;
+  position: fixed;
+  bottom: 1em;
+  left: 4.25em;
 }
 
 </style>

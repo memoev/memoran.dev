@@ -6,7 +6,7 @@
       <p class="landing">Keeping your thoughts, lists and notes organized just got a lot funner! Powered by Vue.js.</p>
       <img class="notes" alt="Notes" src="../assets/notes.png">
       <div>
-        <button class="btn landing btn-success" @click="login">Sign in</button>
+        <router-link v-bind:to="{path: '/app'}">Router Link</router-link>
         <a href="https://github.com/memoev/memoran.dev"><button class="btn landing btn-dark">Open Source</button></a>
       </div>
     </div>
@@ -25,11 +25,6 @@ export default {
     ...mapActions({
       toggleLogIn: 'toggleLogIn'
     }),
-    login() {
-      this.$auth.loginWithRedirect({
-          redirect_uri: 'https://memorandev.vercel.app/app'
-      });
-    }
   },
 }
 </script>

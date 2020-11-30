@@ -20,8 +20,6 @@ import NoteDisplay from '../components/NoteDisplay.vue'
 import NewNote from '../components/NotesBar/NewNote.vue'
 import { mapActions } from 'vuex';
 
-let API_URL = 'https://memoran-dev.herokuapp.com/notes';
-
 export default {
   name: 'MemorandevApp',
   components: {
@@ -36,14 +34,7 @@ export default {
     })
   },
   mounted() {
-    const callNotes = () => {
-      API_URL += `/user/${this.$auth.user.nickname}`;
-      
-      fetch(API_URL).then(res => res.json()).then((result) => {
-        this.FillNotesList(result);
-      })
-    }
-    setTimeout(callNotes, 500);
+
   }
 }
 </script>
