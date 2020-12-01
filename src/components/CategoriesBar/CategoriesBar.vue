@@ -1,10 +1,10 @@
 <template>
   <div>
-    <div class="logo">
+    <!-- <div class="logo">
       <img class="book" alt="book" :src=" this.$store.state.openbook ? img2 : img1 ">
     </div>
-    <hr>
-    <button class="btn btn-secondary">
+    <hr> -->
+    <button class="topbtn btn btn-secondary">
       <h6>NEW NOTE</h6>
     </button>
     <hr>
@@ -59,7 +59,7 @@ export default {
 h6 {
   color: #fff;
   margin: 0;
-  font-size: 12px;
+  font-size: 10px;
 }
 
 hr {
@@ -78,9 +78,8 @@ img.bottoms-btn {
   padding: 0px;
 }
 
-.book {
-  padding-top: 1em;
-  width: 30%;
+.topbtn {
+  margin-top: 1em;
 }
 
 .cats-title {
