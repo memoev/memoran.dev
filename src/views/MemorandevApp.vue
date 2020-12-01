@@ -53,22 +53,23 @@ div.app-container {
   font-family: Arial, Helvetica, sans-serif;
   padding: unset;
   height: 100vh;
-  flex: 0 0 200px;
+  flex: 0 0 195px;
   position: relative;
+  border-right: 2px solid #000;
 }
 
 .notesbar {
-  background-color: #cecece;
+  background-color: #282828;
   padding: unset;
   height: 100vh;
-  flex: 0 0 300px;
+  flex: 0 0 260px;
 }
 
 .note {
-  background-color: #f2f2f2;
+  background-color: #d2d2d2;
   height: 100vh !important;
   flex: auto;
-  min-width: 500px;
+  min-width: 600px;
 }
 
 </style>

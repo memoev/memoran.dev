@@ -8,10 +8,10 @@ export default new Vuex.Store({
     title: "memoran.DEV",
     openbook: false,
     categories: [
-      { id: 1, name: "all", icon: "bookmark" },
-      { id: 2, name: "quick", icon: "bolt" },
-      { id: 3, name: "school", icon: "book" },
-      { id: 4, name: "favorites", icon: "star" }
+      { id: 1, name: "All", icon: "code" },
+      { id: 2, name: "Quick", icon: "bolt" },
+      { id: 3, name: "School", icon: "book" },
+      { id: 4, name: "Favorites", icon: "star" }
     ],
     notes: [],
     selectedNote: {},

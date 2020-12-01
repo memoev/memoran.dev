@@ -1,16 +1,10 @@
 <template>
   <div class="notes-container">
     <div class="notes-header">
-      <h3 class="col-10">NEW NOTE:</h3>
-      <button class="col-2" @click="handleClick()"><b>+</b></button>
+      <input type="text" placeholder=" Search for notes...">
     </div>
-    <div class="note-list" v-if="typeof notes != 'undefined' && notes != null && notes.length > 0">
-      <div v-for="note in notes" v-bind:key="note._id">
-          <Note v-bind:note="note" />
-      </div>
-    </div>
-    <div v-else>
-      <img class="load" :src="img1" alt="loading">
+    <div v-for="note in notes" v-bind:key="note._id">
+        <Note v-bind:note="note" />
     </div>
   </div>
 </template>
@@ -23,11 +17,6 @@ export default {
   name: 'NotesBar',
   components: {
       Note
-  },
-  data() {
-    return {
-      img1: require('../../assets/spinner.gif')
-    }
   },
   computed: {
     ...mapState({
@@ -64,6 +53,13 @@ button {
   border-radius: 1em;
 }
 
+input {
+  width: 100%;
+  font-size: 12px;
+  background: #171717;
+  color: #555555;
+}
+
 button:hover {
   background-color: #555555;
 }
@@ -87,8 +83,8 @@ div.note-list {
 div.notes-header {
   display: flex;
   height: 3em;
-  background: #555555;
-  border-bottom: 2px solid #ffffff;
+  background: #232323;
+  border-bottom: 2px solid #000;
 }
 
 </style>

@@ -1,18 +1,16 @@
 <template>
-    <div class="category">
-        <button class="cat-button" @click="handleClick(category.name)">
-            <font-awesome-icon class="icon" :icon="category.icon" />
-            <span class="category-name">{{category.name.toUpperCase()}}</span>
-        </button>
-    </div>
+    <button class="cat-button" @click="handleClick(category.name)">
+        <font-awesome-icon class="icon" :icon="category.icon" />
+        <span class="category-name">{{category.name}}</span>
+    </button>
 </template>
 
 <script>
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faBolt, faBook, faBookmark, faStar } from '@fortawesome/free-solid-svg-icons';
+import { faBolt, faBook, faCode, faStar } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 
-library.add(faBolt, faStar, faBook, faBookmark);
+library.add(faBolt, faStar, faBook, faCode);
 
 export default {
     name: 'Category',
@@ -42,8 +40,6 @@ export default {
 button {
     width: 100%;
     margin: 0 !important;
-    padding-top: 0.25em;
-    padding-bottom: 0.25em;
 }
 
 span.category-name {
@@ -59,17 +55,18 @@ span.category-name {
     color: #ffffff;
     font-weight: bold;
     font-size: 12px;
-    padding: none !important;
     border: none;
     text-align: left;
     padding-left: 20px;
 }
 
 .cat-button:hover {
-    background-color: #000
+    background-color: #000;
+    color: #ffbf00;
 }
 
 .cat-button:active {
-    background-color: #000
+    background-color: #000;
+    color: #ffbf00;
 }
 </style>
