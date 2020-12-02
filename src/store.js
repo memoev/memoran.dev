@@ -8,7 +8,7 @@ export default new Vuex.Store({
     title: "memoran.DEV",
     openbook: false,
     categories: [
-      { id: 1, name: "All", icon: "code" },
+      { id: 1, name: "all", icon: "code" },
       { id: 2, name: "Quick", icon: "bolt" },
       { id: 3, name: "School", icon: "book" },
       { id: 4, name: "Favorites", icon: "star" }
@@ -28,12 +28,16 @@ export default new Vuex.Store({
     },
     setNotesList(state, payload) {
       // mutate state with payload
+      state.notes.push(payload)
+    },
+    getNotesList(state, payload) {
       payload.forEach(i => {
-        state.notes.push(i)
+        state.notes.push(i);
       });
     },
     selectNote(state, payload) {
       // mutate state with payload
+      console.log(payload);
       state.selectedNote = payload;
     },
     removeNote(state, payload) {
@@ -52,6 +56,9 @@ export default new Vuex.Store({
     },
     FillNotesList(context, notesList) {
       context.commit("setNotesList", notesList);
+    },
+    initNotesList(context, notesList) {
+      context.commit("getNotesList", notesList);
     },
     pushSelectedNote(context, note) {
       context.commit("selectNote", note)

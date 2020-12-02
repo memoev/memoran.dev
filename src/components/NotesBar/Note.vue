@@ -9,7 +9,7 @@
           {{ note.title }}
         </div>
         <div class="note-category">
-          <font-awesome-icon class="icon" :icon="(categories.find(category => category.name === note.category)).icon" />
+          <!-- <font-awesome-icon class="icon" :icon="(categories.find(category => category.name === note.category)).icon" /> -->
           <span class="category-name">{{note.category}}</span>
         </div>
       </div>
@@ -22,16 +22,16 @@
 import { mapActions, mapState } from 'vuex';
 
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faBolt, faBook, faBookmark, faStar } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
+import { faBolt, faBook, faCode, faStar } from '@fortawesome/free-solid-svg-icons';
+// import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 
-library.add(faBolt, faStar, faBook, faBookmark);
+library.add(faBolt, faStar, faBook, faCode);
 
 export default {
   name: 'Note',
   props: ["note"],
   components: {
-      FontAwesomeIcon
+      // FontAwesomeIcon
   },
   computed: {
     ...mapState({
@@ -48,6 +48,7 @@ export default {
       if (this.$store.state.createNote) {
         this.toggleNewNote();
       }
+      console.log(obj);
       this.pushSelectedNote(obj);
     },
     handleTrash: function(obj) {

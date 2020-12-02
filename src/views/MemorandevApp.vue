@@ -30,11 +30,12 @@ export default {
   },
   methods: {
     ...mapActions({
-      FillNotesList: 'FillNotesList',
+      initNotesList: 'initNotesList',
     })
   },
   mounted() {
-
+    const NOTESLIST = JSON.parse(localStorage.getItem("testNotes"));
+    this.initNotesList(NOTESLIST);
   }
 }
 </script>

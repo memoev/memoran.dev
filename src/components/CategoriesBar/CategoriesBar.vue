@@ -4,7 +4,7 @@
       <img class="book" alt="book" :src=" this.$store.state.openbook ? img2 : img1 ">
     </div>
     <hr> -->
-    <button class="topbtn btn btn-secondary">
+    <button class="topbtn btn btn-secondary" @click="handleClick">
       <h6>NEW NOTE</h6>
     </button>
     <hr>
@@ -30,7 +30,9 @@
 
 <script>
 import Category from './Category.vue'
-import { mapState } from 'vuex'
+import { mapState, mapActions } from 'vuex'
+
+import { v4 as uuidv4 } from 'uuid';
 
 export default {
   name: 'CategoriesBar',
@@ -51,6 +53,28 @@ export default {
       categories: 'categories',
     })
   },
+  methods: {
+    ...mapActions({
+      toggleBook: "toggleBook",
+      pushSelectedNote: "pushSelectedNote",
+    }),
+    handleClick: async function (e) {
+      e.preventDefault();
+      const note = {
+        username: 'guillermo',
+        title: 'test',
+        category: 'all',
+        content: '',
+        _id: uuidv4(),
+        created: "2020-07-16T07:03:23.068Z",
+      };
+
+      // this.toggleNewNote();
+      await this.pushSelectedNote(note);
+      await this.toggleBook();
+
+    }
+  }
 }
 </script>
 

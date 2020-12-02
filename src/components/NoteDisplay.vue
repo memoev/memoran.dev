@@ -1,8 +1,9 @@
 <template>
     <div class="note">
         <div class="controls">
-            <button class="control-button" @click="handleClickEdit">{{this.$store.state.openbook === false ? `Edit` : `Preview`}}</button>
-            <button class="control-button" @click="handleClickDelete(selectedNote)">Delete</button>
+            <button class="control-button" @click="handleClickEdit()">
+                <img class="save" :src="save" alt="save">
+            </button>
         </div>
         <div v-html="compiledMarkdown" id="compiled" v-if="!this.$store.state.openbook"/>
         <codemirror id="markdown" :value="this.$store.state.selectedNote.content" :options="cmOption" @input="onCmCodeChange" v-else/>
@@ -33,8 +34,11 @@ export default {
                 mode: 'text/x-markdown',
                 theme: 'base16-light',
                 lineWrapping: true,
-                lineNumbers: true
+                lineNumbers: true,
+                autofocus: true,
+                spellcheck: true,
             },
+            save: require('../assets/save.png')
         }
     },
     computed: {
@@ -53,47 +57,15 @@ export default {
     methods: {
         ...mapActions({
             toggleBook: 'toggleBook',
-            deleteSelectedNote: 'deleteSelectedNote',
+            FillNotesList: 'FillNotesList',
             pushSelectedNote: 'pushSelectedNote',
         }),
         handleClickEdit: function() {
-            this.toggleBook();
-            let API_URL = 'https://memoran-dev.herokuapp.com/notes';
-            API_URL += `/${this.$store.state.selectedNote._id}`
-
-            if (!this.openBook) {
-                var brandNew = this.$store.state.selectedNote
-                fetch(API_URL, {
-                    method: 'PUT',
-                    body: JSON.stringify({
-                        _id: `/${this.$store.state.selectedNote._id}`,
-                        newContent: brandNew.content
-                    }),
-                    headers: new Headers({
-                        'Content-Type': 'application/json'
-                    }),
-                }).then(response => {
-                    response.json();
-                    this.pushSelectedNote(brandNew);
-                })
-            }
-
-            // this.edit = !this.edit
-        },
-        handleClickDelete: function(obj) {
-            this.deleteSelectedNote(obj);
-            this.pushSelectedNote( {} );
-            let API_URL = 'https://memoran-dev.herokuapp.com/notes';
-            API_URL += `/${obj._id}`
-            
-            fetch(API_URL, {
-                    method: 'DELETE',
-                    headers: new Headers({
-                        'Content-Type': 'application/json'
-                    }),
-                }).then(response => {
-                    response.json();
-                })
+            console.log(this.$store.state.selectedNote);
+            const NEWNOTE = this.$store.state.selectedNote;
+            this.FillNotesList(NEWNOTE);
+            console.log(NEWNOTE);
+            localStorage.setItem('testNotes', JSON.stringify(this.$store.state.notes));
         },
         onCmCodeChange: function(newCode) {
             this.$store.state.selectedNote.content = newCode
@@ -109,10 +81,10 @@ export default {
 }
 
 .controls {
-    right: 1em;
+    right: 0.5em;
     position: absolute;
-    margin-right: 1em;
-    margin-top: 1em;
+    margin-right: 0.5em;
+    margin-top: 0.5em;
     z-index: 99;
 }
 
@@ -126,6 +98,10 @@ button.control-button {
 
 button.control-button:hover {
     color: #000
+}
+
+img.save {
+    width: 15px;
 }
 
 #compiled {

@@ -21,6 +21,7 @@ export default {
     methods: {
         handleClick: function(name) {
             let API_URL = 'https://memoran-dev.herokuapp.com'
+            console.log(name);
 
             if (name === 'all') {
                 API_URL += '/all'
