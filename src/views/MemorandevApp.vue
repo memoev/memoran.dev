@@ -35,7 +35,9 @@ export default {
   },
   mounted() {
     const NOTESLIST = JSON.parse(localStorage.getItem("testNotes"));
-    this.initNotesList(NOTESLIST);
+    if (NOTESLIST != null) {
+      this.initNotesList(NOTESLIST);
+    } 
   }
 }
 </script>

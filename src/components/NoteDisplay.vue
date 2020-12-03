@@ -36,7 +36,6 @@ export default {
                 lineWrapping: true,
                 lineNumbers: true,
                 autofocus: true,
-                spellcheck: true,
             },
             save: require('../assets/save.png')
         }
@@ -60,11 +59,11 @@ export default {
             FillNotesList: 'FillNotesList',
             pushSelectedNote: 'pushSelectedNote',
         }),
-        handleClickEdit: function() {
-            console.log(this.$store.state.selectedNote);
+        handleClickEdit: async function() {
             const NEWNOTE = this.$store.state.selectedNote;
+            const newTitle = document.getElementsByClassName("CodeMirror-line")[0].childNodes[0].textContent;
+            NEWNOTE.title = newTitle;
             this.FillNotesList(NEWNOTE);
-            console.log(NEWNOTE);
             localStorage.setItem('testNotes', JSON.stringify(this.$store.state.notes));
         },
         onCmCodeChange: function(newCode) {

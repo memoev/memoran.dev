@@ -8,7 +8,7 @@ export default new Vuex.Store({
     title: "memoran.DEV",
     openbook: false,
     categories: [
-      { id: 1, name: "all", icon: "code" },
+      { id: 1, name: "All", icon: "code" },
       { id: 2, name: "Quick", icon: "bolt" },
       { id: 3, name: "School", icon: "book" },
       { id: 4, name: "Favorites", icon: "star" }
@@ -37,7 +37,6 @@ export default new Vuex.Store({
     },
     selectNote(state, payload) {
       // mutate state with payload
-      console.log(payload);
       state.selectedNote = payload;
     },
     removeNote(state, payload) {

@@ -48,7 +48,6 @@ export default {
       if (this.$store.state.createNote) {
         this.toggleNewNote();
       }
-      console.log(obj);
       this.pushSelectedNote(obj);
     },
     handleTrash: function(obj) {

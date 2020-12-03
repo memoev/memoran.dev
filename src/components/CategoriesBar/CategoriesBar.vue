@@ -63,7 +63,7 @@ export default {
       const note = {
         username: 'guillermo',
         title: 'test',
-        category: 'all',
+        category: 'All',
         content: '',
         _id: uuidv4(),
         created: "2020-07-16T07:03:23.068Z",
