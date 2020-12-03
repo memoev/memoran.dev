@@ -61,7 +61,10 @@ export default {
         }),
         handleClickEdit: async function() {
             const NEWNOTE = this.$store.state.selectedNote;
-            const newTitle = document.getElementsByClassName("CodeMirror-line")[0].childNodes[0].textContent;
+            let newTitle = document.getElementsByClassName("CodeMirror-line")[0].childNodes[0].textContent;
+            if (newTitle.substring(0, 2) == '# ') {
+                newTitle = newTitle.substring(2, newTitle.length);
+            }
             NEWNOTE.title = newTitle;
             this.FillNotesList(NEWNOTE);
             localStorage.setItem('testNotes', JSON.stringify(this.$store.state.notes));

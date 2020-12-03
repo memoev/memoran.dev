@@ -1,9 +1,5 @@
 <template>
   <div>
-    <!-- <div class="logo">
-      <img class="book" alt="book" :src=" this.$store.state.openbook ? img2 : img1 ">
-    </div>
-    <hr> -->
     <button class="topbtn btn btn-secondary" @click="handleClick">
       <h6>NEW NOTE</h6>
     </button>
