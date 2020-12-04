@@ -6,7 +6,7 @@
             </button>
         </div>
         <div v-html="compiledMarkdown" id="compiled" v-if="!this.$store.state.openbook"/>
-        <codemirror id="markdown" :value="this.$store.state.selectedNote.content" :options="cmOption" @input="onCmCodeChange" v-else/>
+        <codemirror ref="cmEditor" id="markdown" :value="this.$store.state.selectedNote.content" :options="cmOption" @input="onCmCodeChange" v-else/>
     </div>
 </template>
 
@@ -20,6 +20,7 @@ import 'codemirror/lib/codemirror.css'
 import 'codemirror/mode/javascript/javascript.js'
 import 'codemirror/mode/markdown/markdown.js'
 import 'codemirror/theme/base16-light.css'
+// import codemirrorVue from 'vue-codemirror/src/codemirror.vue'
 
 // console.log(CodeMirror.fromTextArea);
 
@@ -61,7 +62,8 @@ export default {
         }),
         handleClickEdit: async function() {
             const NEWNOTE = this.$store.state.selectedNote;
-            let newTitle = document.getElementsByClassName("CodeMirror-line")[0].childNodes[0].textContent;
+            // console.log(this.$refs.cmEditor); yay!
+            let newTitle = this.$refs.cmEditor.cminstance.doc.children[0].lines[0].text;
             if (newTitle.substring(0, 2) == '# ') {
                 newTitle = newTitle.substring(2, newTitle.length);
             }
