@@ -52,20 +52,8 @@ export default {
     },
     handleTrash: function(obj) {
       this.deleteSelectedNote(obj);
-      if (this.$store.state.selectedNote === obj) {
-        this.pushSelectedNote({});
-      }
-      let API_URL = 'https://memoran-dev.herokuapp.com/notes';
-      API_URL += `/${obj._id}`
-      
-      fetch(API_URL, {
-        method: 'DELETE',
-        headers: new Headers({
-            'Content-Type': 'application/json'
-        }),
-      }).then(response => {
-        response.json();
-      })
+      this.pushSelectedNote({});
+      localStorage.setItem('testNotes', JSON.stringify(this.$store.state.notes));
     }
   }
 }
