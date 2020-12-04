@@ -1,7 +1,7 @@
 <template>
   <div class="notes-container">
     <div class="notes-header">
-      <input type="text" placeholder=" Search for notes...">
+      <input type="text" placeholder=" Search">
     </div>
     <div v-for="note in notes" v-bind:key="note._id">
         <Note v-bind:note="note" />
@@ -48,7 +48,7 @@ h3 {
 
 button {
   background-color: inherit;
-  color: #ffffff;
+  color: #ffffff !important;
   border: 2px solid #555555;
   border-radius: 1em;
 }

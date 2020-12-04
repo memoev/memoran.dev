@@ -114,6 +114,7 @@ img.save {
     overflow: scroll;
     color: #363636;
     padding: 1.5em;
+    font-size: 12px;
 }
 
 #compiled::-webkit-scrollbar {
@@ -124,7 +125,7 @@ img.save {
     height: 100vh !important;
     text-align: left;
     font-family: Menlo,Monaco,monospace;
-    font-size: 14px;
+    font-size: 12px;
 }
 
 .CodeMirror::-webkit-scrollbar {

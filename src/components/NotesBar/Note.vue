@@ -74,7 +74,7 @@ export default {
 <style scoped>
 button {
   background-color: inherit;
-  color: #363636;
+  color: #fff;
   width: 100%;
   border-bottom: 0.15em solid #555555;
   border-top: unset;
@@ -85,8 +85,7 @@ button {
 }
 
 button:hover {
-  background-color: #555555;
-  color: #fff;
+  background-color: #000;
 }
 
 button:focus {
@@ -109,7 +108,7 @@ div.note {
 }
 
 div.note-title {
-  font-size: 14px;
+  font-size: 12px;
   margin-left: 1em;
   margin-bottom: 0.25em;
 }

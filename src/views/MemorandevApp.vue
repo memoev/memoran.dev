@@ -69,7 +69,7 @@ div.app-container {
 }
 
 .note {
-  background-color: #d2d2d2;
+  background-color: #fff;
   height: 100vh !important;
   flex: auto;
   min-width: 600px;
