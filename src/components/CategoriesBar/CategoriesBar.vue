@@ -17,7 +17,7 @@
       <button class="btn btn-secondary bottoms-btn">
         <img class="bottoms-btn" :src="darkmode" alt="darkmode">
       </button>
-      <button class="btn btn-secondary bottoms-btn">
+      <button class="btn btn-secondary bottoms-btn" @click="handleView">
         <img class="bottoms-btn" :src="view" alt="view">
       </button>
     </div>
@@ -69,6 +69,11 @@ export default {
       await this.pushSelectedNote(note);
       await this.toggleBook();
 
+    },
+    handleView: function (e) {
+      e.preventDefault();
+
+      this.toggleBook();
     }
   }
 }
