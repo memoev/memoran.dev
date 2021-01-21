@@ -48,7 +48,7 @@ export default {
         }),
         compiledMarkdown: function () {
             if (!this.$store.state.selectedNote.content) {
-                return marked('oh no!');
+                return marked("<div class='placeholder-div'><p>CLICK ON</p><p><kbd>NEW NOTE</kbd></p></div>");
             } else {
                 return marked(this.$store.state.selectedNote.content)
             }
@@ -83,6 +83,15 @@ export default {
 </script>
 
 <style>
+.placeholder-div {
+    text-align: center;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
 .note {
     position: relative;
 }

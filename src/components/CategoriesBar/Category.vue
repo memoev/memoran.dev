@@ -1,5 +1,5 @@
 <template>
-    <button class="cat-button" @click="handleClick(category.name)">
+    <button :disabled=true class="cat-button" @click="handleClick(category.name)">
         <font-awesome-icon class="icon" :icon="category.icon" />
         <span class="category-name">{{category.name}}</span>
     </button>
