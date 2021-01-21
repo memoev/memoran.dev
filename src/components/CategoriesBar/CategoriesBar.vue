@@ -67,7 +67,9 @@ export default {
 
       // this.toggleNewNote();
       await this.pushSelectedNote(note);
-      await this.toggleBook();
+      if (!this.$store.state.openbook) {
+        await this.toggleBook();
+      }
 
     },
     handleView: function (e) {

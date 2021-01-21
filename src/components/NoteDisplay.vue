@@ -69,7 +69,7 @@ export default {
             NEWNOTE.title = newTitle;
             let local = JSON.parse(localStorage.getItem('testNotes'));
             let found = local.find(x => x._id === this.$store.state.selectedNote._id);
-            if (typeof found === "undefined") {
+            if (typeof found === "undefined" && NEWNOTE.title) {
                 this.FillNotesList(NEWNOTE);
                 localStorage.setItem('testNotes', JSON.stringify(this.$store.state.notes));
             }

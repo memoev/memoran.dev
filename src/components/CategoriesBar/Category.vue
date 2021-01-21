@@ -20,18 +20,7 @@ export default {
     },
     methods: {
         handleClick: function(name) {
-            let API_URL = 'https://memoran-dev.herokuapp.com'
             console.log(name);
-
-            if (name === 'all') {
-                API_URL += '/all'
-            } else {
-                API_URL += `/notes/${name}`
-            }
-
-            fetch(API_URL).then(res => res.json()).then((result) => {
-            this.$store.state.notes = result;
-            });
         },
     },
 }
