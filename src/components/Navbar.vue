@@ -8,9 +8,6 @@
                 <li class="nav-item navbar">
                 <a href="https://github.com/memoev/memoran.dev"><img class="github" src="../assets/github.png" alt="Github"></a>
                 </li>
-                <li class="nav-item">
-                    <button class="btn btn-success" @click="login">Sign in</button>
-                </li>
             </ul>
         </div>
       </div>
@@ -32,9 +29,6 @@ export default {
     ...mapActions({
       toggleLogIn: 'toggleLogIn'
     }),
-    login() {
-      this.$auth.loginWithRedirect();
-    }
   }
 }
 </script>

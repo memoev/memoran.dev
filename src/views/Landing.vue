@@ -2,12 +2,10 @@
   <div id="app">
     <div class="landing-page">
       <Navbar />
-      <h1 class="landing"><strong>Note Taking App for Developers</strong></h1>
-      <p class="landing">Keeping your thoughts, lists and notes organized just got a lot funner! Powered by Vue.js.</p>
-      <img class="notes" alt="Notes" src="../assets/notes.png">
-      <div>
-        <router-link v-bind:to="{path: '/app'}">Router Link</router-link>
-        <a href="https://github.com/memoev/memoran.dev"><button class="btn landing btn-dark">Open Source</button></a>
+      <div class="landing-content">
+        <img class="logo" alt="Notes" src="../assets/penrosetri2.png">
+        <h1 class="landing"><strong>Note Taking App</strong></h1>
+        <router-link v-bind:to="{path: '/app'}"><button class="btn landing btn-dark">START</button></router-link>
       </div>
     </div>
   </div>
@@ -52,8 +50,8 @@ body {
 }
 
 h1.landing {
-  color: #2c3e50;
   padding-top: 1em;
+  color: #2c3e50;
 }
 
 p.landing {
@@ -67,6 +65,14 @@ button.landing {
   margin: 0.5em;
   padding: 0.5em;
   height: 3em;
+}
+
+img.logo {
+  width: 100px;
+}
+
+div.landing-content {
+  padding-top: 4em;
 }
 
 </style>

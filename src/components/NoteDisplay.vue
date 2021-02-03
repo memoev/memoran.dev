@@ -73,19 +73,26 @@ export default {
 
             NEWNOTE.title = newTitle;
 
-            let local = JSON.parse(localStorage.getItem('testNotes'));
-            let found = local.find(x => x._id === this.$store.state.selectedNote._id);
-            if (typeof found === "undefined") {
+            localNotes = localStorage.getItem('testNotes');
+            if (localNotes === null) {
                 this.FillNotesList(NEWNOTE);
-                localStorage.setItem('testNotes', JSON.stringify(this.$store.state.notes));
+                    localStorage.setItem('testNotes', JSON.stringify(this.$store.state.notes));
             } else {
-                let noteObj = {
-                    oldValue: found,
-                    newValue: NEWNOTE,
+                let local = JSON.parse(localNotes);
+                let found = local.find(x => x._id === this.$store.state.selectedNote._id);
+    
+                if (typeof found === "undefined") {
+                    this.FillNotesList(NEWNOTE);
+                    localStorage.setItem('testNotes', JSON.stringify(this.$store.state.notes));
+                } else {
+                    let noteObj = {
+                        oldValue: found,
+                        newValue: NEWNOTE,
+                    }
+                    this.ReplaceNoteList(noteObj);
+                    localStorage.setItem('testNotes', JSON.stringify(this.$store.state.notes));
                 }
-                this.ReplaceNoteList(noteObj);
-                localStorage.setItem('testNotes', JSON.stringify(this.$store.state.notes));
-            }
+            };
         },
         onCmCodeChange: function(newCode) {
             this.$store.state.selectedNote.content = newCode
