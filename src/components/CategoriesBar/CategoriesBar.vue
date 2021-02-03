@@ -4,17 +4,17 @@
       <h6>NEW NOTE</h6>
     </button>
     <hr>
-    <p class="cats-title">CATEGORIES</p>
+    <p class="cats-title">CATEGORIES (Future feature).</p>
     <div class="cats">
       <div v-for="category in categories" v-bind:key="category.id">
         <Category v-bind:category="category"/>
       </div>
     </div>
     <div class="bottoms">
-      <button class="btn btn-secondary bottoms-btn">
+      <button class="btn btn-secondary bottoms-btn" disabled>
         <img class="bottoms-btn" :src="settings" alt="settings">
       </button>
-      <button class="btn btn-secondary bottoms-btn">
+      <button class="btn btn-secondary bottoms-btn" disabled>
         <img class="bottoms-btn" :src="darkmode" alt="darkmode">
       </button>
       <button class="btn btn-secondary bottoms-btn" @click="handleView">

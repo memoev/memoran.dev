@@ -10,8 +10,7 @@ export default new Vuex.Store({
     categories: [
       { id: 1, name: "All", icon: "code" },
       { id: 2, name: "Quick", icon: "bolt" },
-      { id: 3, name: "School", icon: "book" },
-      { id: 4, name: "Favorites", icon: "star" }
+      { id: 3, name: "Favorites", icon: "star" }
     ],
     notes: [],
     selectedNote: {},
@@ -29,6 +28,14 @@ export default new Vuex.Store({
     setNotesList(state, payload) {
       // mutate state with payload
       state.notes.push(payload)
+    },
+    updateNotesList(state, payload) {
+      var index = state.notes.indexOf(payload.oldValue);
+      if (index !== -1) {
+          state.note[index] = payload.newValue;
+      }
+      // You could use Array.prototype.splice();
+      // state.notes.splice(index, 1, payload.newValue)
     },
     getNotesList(state, payload) {
       payload.forEach(i => {
@@ -55,6 +62,9 @@ export default new Vuex.Store({
     },
     FillNotesList(context, notesList) {
       context.commit("setNotesList", notesList);
+    },
+    ReplaceNoteList(context, note) {
+      context.commit("updateNotesList", note)
     },
     initNotesList(context, notesList) {
       context.commit("getNotesList", notesList);

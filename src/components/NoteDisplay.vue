@@ -1,12 +1,14 @@
 <template>
     <div class="note">
-        <div class="controls">
-            <button class="control-button" @click="handleClickEdit()">
-                <img class="save" :src="save" alt="save">
-            </button>
-        </div>
         <div v-html="compiledMarkdown" id="compiled" v-if="!this.$store.state.openbook"/>
-        <codemirror ref="cmEditor" id="markdown" :value="this.$store.state.selectedNote.content" :options="cmOption" @input="onCmCodeChange" v-else/>
+        <div v-else>
+            <div class="controls">
+                <button class="control-button" @click="handleClickEdit()">
+                    <img class="save" :src="save" alt="save">
+                </button>
+            </div>
+            <codemirror ref="cmEditor" id="markdown" :value="this.$store.state.selectedNote.content" :options="cmOption" @input="onCmCodeChange"/>
+        </div>
     </div>
 </template>
 
@@ -58,19 +60,30 @@ export default {
         ...mapActions({
             toggleBook: 'toggleBook',
             FillNotesList: 'FillNotesList',
+            ReplaceNoteList: 'ReplaceNoteList',
             pushSelectedNote: 'pushSelectedNote',
         }),
         handleClickEdit: async function() {
             const NEWNOTE = this.$store.state.selectedNote;
             let newTitle = this.$refs.cmEditor.cminstance.doc.children[0].lines[0].text;
+
             if (newTitle.substring(0, 2) == '# ') {
                 newTitle = newTitle.substring(2, newTitle.length);
             }
+
             NEWNOTE.title = newTitle;
+
             let local = JSON.parse(localStorage.getItem('testNotes'));
             let found = local.find(x => x._id === this.$store.state.selectedNote._id);
-            if (typeof found === "undefined" && NEWNOTE.title) {
+            if (typeof found === "undefined") {
                 this.FillNotesList(NEWNOTE);
+                localStorage.setItem('testNotes', JSON.stringify(this.$store.state.notes));
+            } else {
+                let noteObj = {
+                    oldValue: found,
+                    newValue: NEWNOTE,
+                }
+                this.ReplaceNoteList(noteObj);
                 localStorage.setItem('testNotes', JSON.stringify(this.$store.state.notes));
             }
         },

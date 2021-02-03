@@ -1,7 +1,7 @@
 <template>
   <div class="notes-container">
     <div class="notes-header">
-      <input type="text" placeholder=" Search">
+      <input type="text" placeholder=" Search: (Future feature)" disabled>
     </div>
     <div v-for="note in notes" v-bind:key="note._id">
         <Note v-bind:note="note" />
